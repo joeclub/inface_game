@@ -1,0 +1,62 @@
+﻿[
+    {
+        "SpriteName": "ball0",
+        "ObjectName": "basketBall",
+        "Weight": "1"
+    },
+    {
+        "SpriteName": "ball1",
+        "ObjectName": "golfball",
+        "Weight": "2"
+    },
+    {
+        "SpriteName": "ball2",
+        "ObjectName": "ruckbiball",
+        "Weight": "4"
+    },
+    {
+        "SpriteName": "ball3",
+        "ObjectName": "soccorball",
+        "Weight": "4"
+    },
+    {
+        "SpriteName": "ball4",
+        "ObjectName": "tenissball",
+        "Weight": "5"
+    },
+    {
+        "SpriteName": "ball5",
+        "ObjectName": "bollingBall",
+        "Weight": "6"
+    },
+    {
+        "SpriteName": "ball6",
+        "ObjectName": "bollingBall",
+        "Weight": "7"
+    },
+    {
+        "SpriteName": "ball7",
+        "ObjectName": "bollingBall",
+        "Weight": "8"
+    },
+    {
+        "SpriteName": "ball8",
+        "ObjectName": "bollingBall",
+        "Weight": "9"
+    },
+    {
+        "SpriteName": "ball9",
+        "ObjectName": "bollingBall",
+        "Weight": "9"
+    },
+    {
+        "SpriteName": "ball10",
+        "ObjectName": "bollingBall",
+        "Weight": "10"
+    },
+    {
+        "SpriteName": "ball11",
+        "ObjectName": "bollingBall",
+        "Weight": "11"
+    }
+]

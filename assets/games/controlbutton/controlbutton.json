@@ -1,0 +1,77 @@
+﻿[
+    {
+        "modelName": "MODEL 01",
+        "on_off": [ -1, -1, -1, 1 ],
+        "gage": 650
+    },
+    {
+        "modelName": "MODEL 02",
+        "on_off": [ -1, -1, 1, -1 ],
+        "gage": 785
+    },
+    {
+        "modelName": "MODEL 03",
+        "on_off": [ -1, 1, -1, -1 ],
+        "gage": 950
+    },
+    {
+        "modelName": "MODEL 04",
+        "on_off": [ 1, -1, -1, -1 ],
+        "gage": 1150
+    },
+    {
+        "modelName": "MODEL 05",
+        "on_off": [ -1, -1, 1, 1 ],
+        "gage": 1440
+    },
+    {
+        "modelName": "MODEL 06",
+        "on_off": [ -1, 1, -1, 1 ],
+        "gage": 1570
+    },
+    {
+        "modelName": "MODEL 07",
+        "on_off": [ -1, 1, 1, -1 ],
+        "gage": 1728
+    },
+    {
+        "modelName": "MODEL 08",
+        "on_off": [ 1, -1, -1, 1 ],
+        "gage": 1838
+    },
+    {
+        "modelName": "MODEL 09",
+        "on_off": [ 1, -1, 1, -1 ],
+        "gage": 1920
+    },
+    {
+        "modelName": "MODEL 10",
+        "on_off": [ 1, 1, -1, -1 ],
+        "gage": 2107
+    },
+    {
+        "modelName": "MODEL 11",
+        "on_off": [ -1, 1, 1, 1 ],
+        "gage": 2335
+    },
+    {
+        "modelName": "MODEL 12",
+        "on_off": [ 1, -1, 1, 1 ],
+        "gage": 2618
+    },
+    {
+        "modelName": "MODEL 13",
+        "on_off": [ 1, 1, -1, 1 ],
+        "gage": 2787
+    },
+    {
+        "modelName": "MODEL 14",
+        "on_off": [ 1, 1, 1, -1 ],
+        "gage": 2880
+    },
+    {
+        "modelName": "MODEL 15",
+        "on_off": [ 1, 1, 1, 1 ],
+        "gage": 3600
+    }
+]

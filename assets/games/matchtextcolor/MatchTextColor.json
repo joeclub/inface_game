@@ -1,0 +1,38 @@
+﻿[
+    {
+        "ColorName": "빨강",
+        "Red": "255",
+        "Green": "0",
+        "Blue": "0"
+    },
+    {
+        "ColorName": "노랑",
+        "Red": "255",
+        "Green": "255",
+        "Blue": "0"
+    },
+    {
+        "ColorName": "초록",
+        "Red": "0",
+        "Green": "255",
+        "Blue": "0"
+    },
+    {
+        "ColorName": "파랑",
+        "Red": "0",
+        "Green": "0",
+        "Blue": "255"
+    },
+    {
+        "ColorName": "검정",
+        "Red": "0",
+        "Green": "0",
+        "Blue": "0"
+    },
+     {
+        "ColorName": "보라",
+        "Red": "100",
+        "Green": "0",
+        "Blue" : "255" 
+    }
+]
