@@ -26,14 +26,14 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
   SpriteComponent? leftPicture;
   SpriteComponent? rightPicture;
   
-  ComparePictureGame({required super.context});
-  
+  ComparePictureGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
     // ignore: use_build_context_synchronously
-    gameStep = GameStep(gameNumber: 1, gameName: '그림 비교', isCat: true, timeLimit: limitTime, context: context, gameDescIndex: 22, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 1, gameName: '그림 비교', isCat: true, timeLimit: limitTime, gameDescIndex: 22, isKeyboardControl: true);
     world.add(gameStep);
 
     guide = await loadSprite('games/comparepicture/Group.png');

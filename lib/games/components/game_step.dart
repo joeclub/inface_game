@@ -36,7 +36,7 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
   late TextComponent scoreText;
 
   late InputUI inputUI;
-  late GameDesc gameDesc;
+  GameDesc? gameDesc;
 
   late Sprite sprite;
 
@@ -44,12 +44,12 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
   late TextComponent playingText;
   late TextComponent endGameText;
 
+  late GameBackButton backButton;
+
   final bool isCat;
 
   int step = 0;
   double currTime = 0;
-
-  BuildContext context;
 
   List<GameDescModel> lstGameDesc = [];
 
@@ -57,14 +57,16 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
 
   bool isKeyboardControl;
 
+  bool isHalfTime;
+
   GameStep( {
     required this.timeLimit,
     required this.gameNumber,
     required this.gameName,
-    required this.context,
     this.isCat = false,
     this.gameDescIndex = 0,
     this.isKeyboardControl = false,
+    this.isHalfTime = false,
   });
 
   @override
@@ -165,7 +167,7 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
 
     timerText = TextComponent()
       ..anchor = Anchor.centerLeft
-      ..text = '04:00'
+      ..text = isHalfTime ? '02:00' : '04:00'
       ..position = Vector2(1180, 30)
       ..textRenderer = TextPaint(
         style: TextStyle(
@@ -235,10 +237,8 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
     );
     gameRef.world.add(inputUI);
 
-    GameBackButton backButton = GameBackButton(
+    backButton = GameBackButton(
       position: Vector2(50, 30),
-      // ignore: use_build_context_synchronously
-      context: context
     );
     gameRef.world.add(backButton);
 
@@ -302,12 +302,15 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
       gameDescModel: lstGameDesc[gameDescIndex],
       parentGameStep: this,
     );
-    gameRef.world.add(gameDesc);
+    gameRef.world.add(gameDesc!);
   }
 
   void startGame(){
     step++;
-    gameRef.world.remove(gameDesc);
+    if( gameDesc != null ) {
+      gameRef.world.remove(gameDesc!);
+    }
+    
     Countdown countdown = Countdown();
     gameRef.world.add(countdown);
   }

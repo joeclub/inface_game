@@ -46,7 +46,7 @@ class ConfirmButton extends ColorRectComponent with HasGameRef<StackingBoxesGame
     }
 
     if( correct ){
-      int score = 3500 + (gameRef.questionView!.boxCount-5) * 500;
+      int score = gameRef.isSecondHalfQuestion ? 100 : 80;// 3500 + (gameRef.questionView!.boxCount-5) * 500;
       gameRef.addScore(score);
       gameRef.resetGame();
     }

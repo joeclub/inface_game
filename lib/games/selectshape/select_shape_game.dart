@@ -62,13 +62,13 @@ class SelectShapeGame extends EduceGame {
   Timer? timer;
   int cardCount = 0;
 
-  SelectShapeGame({required super.context});
-  
+  SelectShapeGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 16, gameName: '도형 고르기', timeLimit: limitTime, context: context, gameDescIndex: 16 );
+    gameStep = GameStep(gameNumber: 16, gameName: '도형 고르기', timeLimit: limitTime, gameDescIndex: 16 );
     world.add(gameStep);
 
     bgSprite = await loadSprite('games/selectshape/bg_gradation.png');

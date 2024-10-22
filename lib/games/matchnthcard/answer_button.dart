@@ -19,11 +19,11 @@ class AnswerButton extends SpriteComponent with HasGameRef<MatchNthCardGame>, Ta
     return super.onLoad();
   }
 
-  @override
-  void onTapUp(TapUpEvent event) {
-    super.onTapUp(event);
-    onClick();
-  }
+  // @override
+  // void onTapUp(TapUpEvent event) {
+  //   super.onTapUp(event);
+  //   onClick();
+  // }
 
   void onClick(){
     gameRef.checkCard(isLeft);

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'compare_picture_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class ComparePicturePage extends StatefulWidget {
 }
 
 class _ComparePicturePageState extends State<ComparePicturePage> {
+
+  final ComparePictureGame _game = ComparePictureGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _ComparePicturePageState extends State<ComparePicturePage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: ComparePictureGame(context: context),
+      game: _game,
     );
   }
 }

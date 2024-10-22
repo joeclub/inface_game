@@ -28,13 +28,13 @@ class ControlButtonGame extends EduceGame {
   int currValue = 0;
   int currIndex = 0;
 
-  ControlButtonGame({required super.context});
-  
+  ControlButtonGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 3, gameName: '버튼 조작', isCat: true, timeLimit: limitTime, context: context, gameDescIndex: 20);
+    gameStep = GameStep(gameNumber: 3, gameName: '버튼 조작', isCat: true, timeLimit: limitTime, gameDescIndex: 20);
     world.add(gameStep);
 
     String json = await rootBundle.loadString('assets/games/controlbutton/controlbutton.json');

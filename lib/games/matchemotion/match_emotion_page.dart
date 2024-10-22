@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'match_emotion_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class MatchEmotionPage extends StatefulWidget {
 }
 
 class _MatchEmotionPageState extends State<MatchEmotionPage> {
+  
+  final MatchEmotionGame _game = MatchEmotionGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _MatchEmotionPageState extends State<MatchEmotionPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: MatchEmotionGame(context: context),
+      game: _game,
     );
   }
 }

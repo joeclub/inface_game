@@ -36,13 +36,13 @@ class MatchClipGame extends EduceGame {
 
   bool isSecondHalfQuestion = false;
   
-  MatchClipGame({required super.context});
+  MatchClipGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 1, gameName: '클립 맞히기', isCat: true, timeLimit: limitTime, context: context, gameDescIndex: 23);
+    gameStep = GameStep(gameNumber: 1, gameName: '클립 맞히기', isCat: true, timeLimit: limitTime, gameDescIndex: 23);
     world.add(gameStep);
 
     Sprite redSprite = await loadSprite('games/matchclip/clip_red.png');

@@ -27,13 +27,13 @@ class MatchEmotionGame extends EduceGame {
   int emotionIndex = 0;
   List<int> lstEmotionIndices = [];
 
-  MatchEmotionGame({required super.context});
+  MatchEmotionGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 3, gameName: '같은 감정 맞히기', timeLimit: limitTime, isCat: true, context: context, gameDescIndex: 12 );
+    gameStep = GameStep(gameNumber: 3, gameName: '같은 감정 맞히기', timeLimit: limitTime, isCat: true, gameDescIndex: 12 );
     world.add(gameStep);
   }
 

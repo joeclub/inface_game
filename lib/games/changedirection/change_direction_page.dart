@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'change_direction_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class ChangeDirectionPage extends StatefulWidget {
 }
 
 class _ChangeDirectionPageState extends State<ChangeDirectionPage> {
+
+  final ChangeDirectionGame _game = ChangeDirectionGame();
+  
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _ChangeDirectionPageState extends State<ChangeDirectionPage> {
 
   @override
   Widget build(BuildContext context) {
+     GameBackButton.context = context;
     return GameWidget(
-      game: ChangeDirectionGame(context: context),
+      game: _game,
     );
   }
 }

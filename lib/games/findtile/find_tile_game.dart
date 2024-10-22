@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -25,13 +26,13 @@ class FindTileGame extends EduceGame {
   late Sprite s1;
   late Sprite s2;
 
-  FindTileGame({required super.context});
-    
+  FindTileGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 14, gameName: '타일 위치 기억하기', timeLimit: limitTime, context: context, gameDescIndex: 14);
+    gameStep = GameStep(gameNumber: 14, gameName: '타일 위치 기억하기', timeLimit: limitTime, gameDescIndex: 14);
     world.add(gameStep);
 
     s = await loadSprite('games/findtile/bg.png');

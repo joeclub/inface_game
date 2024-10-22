@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'stacking_boxes_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class StackingBoxesPage extends StatefulWidget {
 }
 
 class _StackingBoxesPageState extends State<StackingBoxesPage> {
+  
+  final StackingBoxesGame _game = StackingBoxesGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _StackingBoxesPageState extends State<StackingBoxesPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: StackingBoxesGame(context: context),
+      game: _game,
     );
   }
 }

@@ -22,13 +22,15 @@ class MatchWeatherGame extends EduceGame {
 
   List<bool> lstAnswers = [];
 
-  MatchWeatherGame({required super.context});
-  
+  bool isClicked = false;
+
+  MatchWeatherGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 10, gameName: '날씨 맞추기', timeLimit: limitTime, context: context, gameDescIndex: 9);
+    gameStep = GameStep(gameNumber: 10, gameName: '날씨 맞히기', timeLimit: limitTime, gameDescIndex: 9);
     world.add(gameStep);
 
     
@@ -172,6 +174,8 @@ class MatchWeatherGame extends EduceGame {
   void resetGame(){
     currRound++;
     gameStep.updateRound();
+
+    isClicked = false;
     
     answerIndex = Random().nextInt(lstAnswers.length);
     int temp = answerIndex;

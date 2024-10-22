@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'find_tile_game.dart';
 
 
@@ -14,6 +15,9 @@ class FindTilePage extends StatefulWidget {
 }
 
 class _FindTilePageState extends State<FindTilePage> {
+  
+  final FindTileGame _game = FindTileGame();
+
   @override
   void initState() {
     super.initState();
@@ -21,8 +25,9 @@ class _FindTilePageState extends State<FindTilePage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: FindTileGame(context: context),
+      game: _game,
     );
   }
 }

@@ -21,12 +21,12 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePrevCardGame>,
     return super.onLoad();
   }
 
-  @override
-  void onTapUp(TapUpEvent event) {
-    super.onTapUp(event);
+  // @override
+  // void onTapUp(TapUpEvent event) {
+  //   super.onTapUp(event);
 
-    onClick();
-  }
+  //   onClick();
+  // }
 
   void onClick(){
     bool isMatched = gameRef.lstCardHistory[gameRef.lstCardHistory.length-1] == gameRef.lstCardHistory[gameRef.lstCardHistory.length-3];

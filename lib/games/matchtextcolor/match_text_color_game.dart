@@ -12,7 +12,7 @@ import '../components/game_step.dart';
 import 'answer_button.dart';
 
 class MatchTextColorGame extends EduceGame with KeyboardEvents {
-  final limitTime = 4 * 60;
+  final limitTime = 2 * 60;
   late GameStep gameStep;
   bool isSecondHalf = false;
 
@@ -23,14 +23,14 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
   TextComponent? leftText;
   TextComponent? rightText;
 
-  MatchTextColorGame({required super.context});
+  MatchTextColorGame();
 
   late Sprite backgroundSprite;
   late Sprite descSprite;
 
   late AnswerButton leftButton;
   late AnswerButton rightButton;
-  
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
@@ -39,7 +39,7 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
     lstTextColorData = matchTextColorModelFromJson(json);
 
     // ignore: use_build_context_synchronously
-    gameStep = GameStep(gameNumber: 6, gameName: '단어의 색-의미 분류', timeLimit: limitTime, context: context, gameDescIndex: 5, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 6, gameName: '단어의 색-의미 분류', timeLimit: limitTime, gameDescIndex: 5, isKeyboardControl: true, isHalfTime: true);
     world.add(gameStep);
 
     backgroundSprite = await loadSprite('games/matchtextcolor/background.png');
@@ -139,12 +139,12 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
     int leftColorIndex = Random().nextInt(lstTextColorData.length);
 
     MatchTextColorModel leftColorModel = lstTextColorData[leftColorIndex];
-    Color leftColor = Color.fromARGB(255, int.parse(leftColorModel.red), int.parse(leftColorModel.green), int.parse(leftColorModel.blue));
+    //Color leftColor = Color.fromARGB(255, int.parse(leftColorModel.red), int.parse(leftColorModel.green), int.parse(leftColorModel.blue));
     leftText = TextComponent(
       anchor: Anchor.center,
       text: strLeftText,
       textRenderer: TextPaint(
-        style: TextStyle(fontSize: 50, color: leftColor),
+        style: const TextStyle(fontSize: 50, color: Colors.black),//leftColor),
       ),
       position: Vector2(480, 420),
     );

@@ -14,7 +14,7 @@ class TrafficLightGame extends EduceGame {
   late GameStep gameStep;
   bool isSecondHalf = false;
 
-  TrafficLightGame({required super.context});
+  TrafficLightGame();
 
   List<Sprite> lstContidions = [];
   List<Vector2> lstConditionSizes = [];
@@ -29,11 +29,13 @@ class TrafficLightGame extends EduceGame {
 
   Question? question;
 
+  bool isSecondHalfQuestion = false;
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 3, gameName: '신호등', isCat: true, timeLimit: limitTime, context: context, gameDescIndex: 21);
+    gameStep = GameStep(gameNumber: 3, gameName: '신호등', isCat: true, timeLimit: limitTime, gameDescIndex: 21);
     world.add(gameStep);
 
     Sprite sprite0 = await loadSprite('games/trafficlight/answer_dir1.png');
@@ -261,6 +263,8 @@ class TrafficLightGame extends EduceGame {
   void resetGame(){
     currRound++;
     gameStep.updateRound();
+
+    isSecondHalfQuestion = isSecondHalf;
     
     for( int i=0; i<lstAnswers.length; ++i){
       world.remove(lstAnswers[i]);
@@ -327,7 +331,7 @@ class TrafficLightGame extends EduceGame {
     if( isChecked == false ) return;
 
     if( question != null ){
-      if( isSecondHalf ){
+      if( isSecondHalfQuestion ){
         int checkValue = 0;
         for( int i=0; i<lstCheck.length; ++i ){
           if( lstCheck[i] ){
@@ -337,8 +341,10 @@ class TrafficLightGame extends EduceGame {
 
         if( question!.secondHalfFilter == checkValue ){
           currScore += 200;
-          gameStep.updateScore(currScore);
+        } else {
+          currScore -= 40;
         }
+        gameStep.updateScore(currScore);
       } else {
         int checkValue = 0;
         if( lstCheck[4] ) {
@@ -353,8 +359,10 @@ class TrafficLightGame extends EduceGame {
         
         if( question!.output == checkValue ){
           currScore += 100;
-          gameStep.updateScore(currScore);
+        } else {
+          currScore -= 20;
         }
+        gameStep.updateScore(currScore);
       }
     }
     resetGame();

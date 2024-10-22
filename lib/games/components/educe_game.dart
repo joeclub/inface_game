@@ -7,7 +7,7 @@ import 'background.dart';
 
 class EduceGame extends FlameGame {
   final screenSize = Vector2(1280, 720);
-  BuildContext context;
+  BuildContext? context;
 
   int currScore = 0;
   int currRound = 0;
@@ -15,7 +15,9 @@ class EduceGame extends FlameGame {
   double currTime = 0;
   bool isInit = false;
 
-  EduceGame({required this.context});
+  bool isLoaded = false;
+
+  EduceGame();
   
   @override
   Color backgroundColor() => Colors.white;

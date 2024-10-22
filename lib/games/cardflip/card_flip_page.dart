@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'card_flip_game.dart';
 
 
@@ -14,6 +15,9 @@ class CardFlipPage extends StatefulWidget {
 }
 
 class _CardFlipPageState extends State<CardFlipPage> {
+
+  final CardFlipGame _game = CardFlipGame();
+
   @override
   void initState() {
     super.initState();
@@ -21,8 +25,9 @@ class _CardFlipPageState extends State<CardFlipPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: CardFlipGame(context: context),
+      game: _game,
     );
   }
 }

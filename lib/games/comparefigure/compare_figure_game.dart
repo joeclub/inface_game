@@ -48,13 +48,13 @@ class CompareFigureGame extends EduceGame with KeyboardEvents {
   List<bool> lstChecked = [];
   List<Answer> lstAnswers = [];
   
-  CompareFigureGame({required super.context});
-  
+  CompareFigureGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 1, gameName: '도형 비교', timeLimit: limitTime, context: context, isCat: true, gameDescIndex: 24);
+    gameStep = GameStep(gameNumber: 1, gameName: '도형 비교', timeLimit: limitTime, isCat: true, gameDescIndex: 24);
     world.add(gameStep);
 
     Sprite rect0 = await loadSprite('games/comparefigure/shape_A.png');

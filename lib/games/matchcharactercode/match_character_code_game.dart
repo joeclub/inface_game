@@ -32,13 +32,13 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
   late AnswerButton leftButton;
   late AnswerButton rightButton;
 
-  MatchCharacterCodeGame({required super.context});
+  MatchCharacterCodeGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 11, gameName: '문자 코드 분류하기', timeLimit: limitTime, context: context, gameDescIndex: 10, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 11, gameName: '문자 코드 분류하기', timeLimit: limitTime, gameDescIndex: 10, isKeyboardControl: true);
     world.add(gameStep);
 
     firstHalfBackground = await loadSprite('games/matchcharactercode/herf_1.png');

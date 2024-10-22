@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -26,14 +27,16 @@ class BlowBalloonGame extends EduceGame {
   int accumulatedProfit = 0;
   bool isGameEnd = false;
 
-  BlowBalloonGame({required super.context});
+  BlowBalloonGame();
   
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 4, gameName: '풍선 불기', timeLimit: limitTime, context: context, gameDescIndex: 3);
+    gameStep = GameStep(gameNumber: 4, gameName: '풍선 불기', timeLimit: limitTime, gameDescIndex: 3);
     world.add(gameStep);
+
+    isLoaded = true;
   }
 
   @override
@@ -61,7 +64,7 @@ class BlowBalloonGame extends EduceGame {
     scoreBoard = ScoreBoard(position: Vector2(360, 410));
     world.add(scoreBoard!);
 
-    remainBalloon = 3;
+    remainBalloon = 31;
   }
 
   @override
@@ -76,7 +79,7 @@ class BlowBalloonGame extends EduceGame {
     }
 
     remainBalloon--;
-    if( remainBalloon < 0 ){
+    if( remainBalloon < 1 ){
       endGame();
       return;
     }

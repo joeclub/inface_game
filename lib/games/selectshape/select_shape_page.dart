@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'select_shape_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class SelectShapePage extends StatefulWidget {
 }
 
 class _SelectShapePageState extends State<SelectShapePage> {
+  
+  final SelectShapeGame _game = SelectShapeGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _SelectShapePageState extends State<SelectShapePage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: SelectShapeGame(context: context),
+      game: _game,
     );
   }
 }

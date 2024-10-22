@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:inface/games/sortball/submit_button.dart';
 
@@ -32,7 +33,7 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
   int tryCount = 0;
   int ballCount = 6;
 
-  SortBallGame({required super.context});
+  SortBallGame();
 
   @override
   Future<void> onLoad() async {
@@ -42,7 +43,7 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
     lstBalls = sortBallModelFromJson(json);
 
     // ignore: use_build_context_synchronously
-    gameStep = GameStep( gameNumber: 2, gameName: '무거운 순서대로 나열하기', timeLimit: limitTime, context: context, gameDescIndex: 1);
+    gameStep = GameStep( gameNumber: 2, gameName: '무거운 순서대로 나열하기', timeLimit: limitTime, gameDescIndex: 1);
 
     world.add(gameStep);
 
@@ -158,7 +159,7 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
     if( result ) {
       if( isSecondHalf ){
         if( minCount < tryCount ) {
-          currScore += 150;
+          currScore += 200;
         } else {
           currScore += 250;
         }

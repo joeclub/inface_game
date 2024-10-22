@@ -9,8 +9,8 @@ import 'package:inface/routes/app_router.gr.dart';
 import 'educe_game.dart';
 
 class GameBackButton extends SpriteComponent with HasGameRef<EduceGame>, TapCallbacks {
-  BuildContext context;
-  GameBackButton({required super.position, required this.context});
+  static BuildContext? context;
+  GameBackButton({required super.position});
 
   @override
   FutureOr<void> onLoad() async {
@@ -30,9 +30,9 @@ class GameBackButton extends SpriteComponent with HasGameRef<EduceGame>, TapCall
     //AutoRouter.of(context).back();
     //AutoRouter.of(context).maybePop<bool>(true);
     //AutoRouter.of(context).replaceAll([const SplashRoute()]);
-    AutoRouter.of(context).popUntil((route) => route.settings.name == 'SplashRoute');
-    AutoRouter.of(context).maybePop();
-    AutoRouter.of(context).push(const SplashRoute());
+    AutoRouter.of(context!).popUntil((route) => route.settings.name == 'SplashRoute');
+    AutoRouter.of(context!).maybePop();
+    AutoRouter.of(context!).push(const SplashRoute());
     //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   }
 }

@@ -28,7 +28,7 @@ enum EmotionType{
 }
 
 class EmotionFitGame extends EduceGame {
-  final limitTime = 4 * 60;
+  final limitTime = 2 * 60;
   late GameStep gameStep;
   bool isSecondHalf = false;
 
@@ -40,13 +40,13 @@ class EmotionFitGame extends EduceGame {
   //List<List<Sprite>> lstEmotionSprites = [];
   List<int> lstEmotionCount = [];
 
-  EmotionFitGame({required super.context});
+  EmotionFitGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 8, gameName: '감정 맞히기', timeLimit: limitTime, context: context, gameDescIndex: 7);
+    gameStep = GameStep(gameNumber: 8, gameName: '감정 맞히기', timeLimit: limitTime, gameDescIndex: 7, isHalfTime: true);
     world.add(gameStep);
   }
 

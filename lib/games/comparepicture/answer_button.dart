@@ -21,11 +21,11 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePictureGame>, 
     return super.onLoad();
   }
 
-  @override
-  void onTapUp(TapUpEvent event) {
-    super.onTapUp(event);
-    onClick();
-  }
+  // @override
+  // void onTapUp(TapUpEvent event) {
+  //   super.onTapUp(event);
+  //   onClick();
+  // }
 
   void onClick(){
     bool isCorrect = ( gameRef.isMatched == isLeft );
@@ -35,6 +35,8 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePictureGame>, 
     );
     if( isCorrect ) {
       gameRef.currScore += 40;
+    } else {
+      gameRef.currScore -= 40;
     }
     gameRef.gameStep.updateScore(gameRef.currScore);
     add(effect);

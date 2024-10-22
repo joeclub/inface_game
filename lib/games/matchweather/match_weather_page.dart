@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'match_weather_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class MatchWeatherPage extends StatefulWidget {
 }
 
 class _MatchWeatherPageState extends State<MatchWeatherPage> {
+  
+  final MatchWeatherGame _game = MatchWeatherGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _MatchWeatherPageState extends State<MatchWeatherPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: MatchWeatherGame(context: context),
+      game: _game,
     );
   }
 }

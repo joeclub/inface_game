@@ -38,13 +38,13 @@ class ConnectHappinessCardGame extends EduceGame {
   bool findUnhappiness = false;
   bool findEnd = false;
 
-  ConnectHappinessCardGame({required super.context});
+  ConnectHappinessCardGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 20, gameName: '행복카드 연결하기', timeLimit: limitTime, context: context, gameDescIndex: 19);
+    gameStep = GameStep(gameNumber: 20, gameName: '행복카드 연결하기', timeLimit: limitTime, gameDescIndex: 19);
     world.add(gameStep);
   }
 
@@ -110,6 +110,7 @@ class ConnectHappinessCardGame extends EduceGame {
   void resetGame(){
     currRound++;
     gameStep.updateRound();
+    roundText.text = 'ROUND $currRound';
     
     for(int i=0; i<lstCards.length; ++i){
       world.remove(lstCards[i]);
@@ -430,8 +431,8 @@ class ConnectHappinessCardGame extends EduceGame {
 		await Future.delayed(const Duration(seconds: 1));
 
 		//AddScore(roundScore);
-    currScore += roundScore;
-    currScore = math.max(0, roundScore);
+    currScore += roundScore * (findEnd ? 2 : 1);
+    //currScore = math.max(0, roundScore);
     gameStep.updateScore(currScore);
     resetGame();
   }

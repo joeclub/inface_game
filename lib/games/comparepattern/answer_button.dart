@@ -21,11 +21,11 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePatternGame>, 
     return super.onLoad();
   }
 
-  @override
-  void onTapUp(TapUpEvent event) {
-    super.onTapUp(event);
-    onClick();
-  }
+  // @override
+  // void onTapUp(TapUpEvent event) {
+  //   super.onTapUp(event);
+  //   onClick();
+  // }
 
   void onClick(){
     bool isCorrect = ( gameRef.isMatched == isLeft );

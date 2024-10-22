@@ -24,13 +24,15 @@ class StackingBoxesGame extends EduceGame {
   late TextComponent scoreText;
   late Sprite arrowSprite;
 
-  StackingBoxesGame({required super.context});
+  bool isSecondHalfQuestion = false;
+
+  StackingBoxesGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 9, gameName: '상자 쌓기', timeLimit: limitTime, context: context, gameDescIndex: 8);
+    gameStep = GameStep(gameNumber: 9, gameName: '상자 쌓기', timeLimit: limitTime, gameDescIndex: 8);
     world.add(gameStep);
 
     arrowSprite = await loadSprite('games/stackingboxes/arrow_black.png');
@@ -172,6 +174,9 @@ class StackingBoxesGame extends EduceGame {
   void resetGame(){
     currRound++;
     gameStep.updateRound();
+    
+    isSecondHalfQuestion = isSecondHalf;
+
     if( floor != null ) world.remove(floor!);
     if( questionView != null ) world.remove(questionView!);
     floor = Floor(

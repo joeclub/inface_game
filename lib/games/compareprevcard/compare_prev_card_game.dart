@@ -31,13 +31,13 @@ class ComparePrevCardGame extends EduceGame with KeyboardEvents {
   late GameCard card;
   late int cardIndex;
 
-  ComparePrevCardGame({required super.context});
-  
+  ComparePrevCardGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 18, gameName: '이전 카드와 비교하기', timeLimit: limitTime, context: context, gameDescIndex: 18, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 18, gameName: '이전 카드와 비교하기', timeLimit: limitTime, gameDescIndex: 18, isKeyboardControl: true);
     world.add(gameStep);
 
     bgSprite = await loadSprite('games/selectshape/bg_gradation.png');

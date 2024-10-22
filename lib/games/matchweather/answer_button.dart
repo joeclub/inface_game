@@ -30,6 +30,13 @@ class AnswerButton extends SpriteComponent with HasGameRef<MatchWeatherGame>, Ta
   @override
   void onTapUp(TapUpEvent event) {
     super.onTapUp(event);
+
+    if( gameRef.isClicked == true ) {
+      return;
+    }
+
+    gameRef.isClicked = true;
+
     setTapUp();
     gameRef.checkAnswer(isSunny);
   }
@@ -37,11 +44,18 @@ class AnswerButton extends SpriteComponent with HasGameRef<MatchWeatherGame>, Ta
   @override
   void onTapDown(TapDownEvent event) {
     super.onTapDown(event);
+
+    if( gameRef.isClicked == true ) {
+      return;
+    }
     setTapDown();
   }
 
   @override
   void onTapCancel(TapCancelEvent event) {
+    if( gameRef.isClicked == true ) {
+      return;
+    }
     setTapUp();
     super.onTapCancel(event);
   }

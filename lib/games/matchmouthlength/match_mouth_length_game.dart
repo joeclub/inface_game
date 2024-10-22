@@ -28,13 +28,13 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
 
   SpriteComponent? face;
 
-  MatchMouthLengthGame({required super.context});
+  MatchMouthLengthGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 12, gameName: '입 길이 판단하기', timeLimit: limitTime, context: context, gameDescIndex: 11, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 12, gameName: '입 길이 판단하기', timeLimit: limitTime, gameDescIndex: 11, isKeyboardControl: true);
     world.add(gameStep);
 
     Sprite spriteInfo = await loadSprite('games/matchmouthlength/Group 1880.png');

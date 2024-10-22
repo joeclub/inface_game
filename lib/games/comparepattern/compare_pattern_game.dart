@@ -42,8 +42,8 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
 
   List<Sprite> lstPatterns = [];
 
-  ComparePatternGame({required super.context});
-  
+  ComparePatternGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
@@ -54,7 +54,7 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
     }
 
     // ignore: use_build_context_synchronously
-    gameStep = GameStep(gameNumber: 17, gameName: '패턴 비교하기', timeLimit: limitTime, context: context, gameDescIndex: 17, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 17, gameName: '패턴 비교하기', timeLimit: limitTime, gameDescIndex: 17, isKeyboardControl: true);
     world.add(gameStep);
 
     bgSprite = await loadSprite('games/selectshape/bg_gradation.png');

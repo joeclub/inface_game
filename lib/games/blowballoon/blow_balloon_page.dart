@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:inface/games/components/game_backbutton.dart';
 
 import 'blow_balloon_game.dart';
 
@@ -13,6 +14,9 @@ class BlowBalloonPage extends StatefulWidget {
 }
 
 class _BlowBalloonPageState extends State<BlowBalloonPage> {
+
+  final BlowBalloonGame _game = BlowBalloonGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _BlowBalloonPageState extends State<BlowBalloonPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: BlowBalloonGame(context: context),
+      game: _game,
     );
   }
 }

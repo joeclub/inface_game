@@ -95,7 +95,7 @@ class _SplashPageState extends State<SplashPage> {
                 onPressed: () {
                   AutoRouter.of(context).push(const MatchWeatherRoute());
                 },
-                child: const Text("날씨 맞추기"),
+                child: const Text("날씨 맞히기"),
               ),
               ElevatedButton(
                 onPressed: () {

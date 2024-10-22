@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
+import '../components/game_backbutton.dart';
 import 'connect_happiness_card_game.dart';
 
 @RoutePage()
@@ -13,6 +14,9 @@ class ConnectHappinessCardPage extends StatefulWidget {
 }
 
 class _ConnectHappinessCardPageState extends State<ConnectHappinessCardPage> {
+
+  final ConnectHappinessCardGame _game = ConnectHappinessCardGame();
+
   @override
   void initState() {
     super.initState();
@@ -20,8 +24,9 @@ class _ConnectHappinessCardPageState extends State<ConnectHappinessCardPage> {
 
   @override
   Widget build(BuildContext context) {
+    GameBackButton.context = context;
     return GameWidget(
-      game: ConnectHappinessCardGame(context: context),
+      game: _game,
     );
   }
 }

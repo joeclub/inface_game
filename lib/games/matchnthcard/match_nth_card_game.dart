@@ -29,13 +29,13 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
 
   late CorrectBox correctBox;
 
-  MatchNthCardGame({required super.context});
-  
+  MatchNthCardGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 7, gameName: 'N번째 카드 맞추기', timeLimit: limitTime, context: context, gameDescIndex: 6, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 7, gameName: 'N번째 카드 맞추기', timeLimit: limitTime, gameDescIndex: 6, isKeyboardControl: true);
     world.add(gameStep);
   }
 

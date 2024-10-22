@@ -22,13 +22,13 @@ class CardFlipGame extends EduceGame {
   bool isStageEnding = false;
   bool isTweening = false;
 
-  CardFlipGame({required super.context});
+  CardFlipGame();
 
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 3, gameName: '카드 뒤집기', timeLimit: limitTime, context: context, gameDescIndex: 2);
+    gameStep = GameStep(gameNumber: 3, gameName: '카드 뒤집기', timeLimit: limitTime, gameDescIndex: 2);
     world.add(gameStep);
   }
 

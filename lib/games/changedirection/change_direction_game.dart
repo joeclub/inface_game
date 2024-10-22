@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -14,13 +15,13 @@ class ChangeDirectionGame extends EduceGame {
 
   List<Pipe> lstPipes = [];
 
-  ChangeDirectionGame({required super.context});
-  
+  ChangeDirectionGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 5, gameName: '방향 바꾸기', timeLimit: limitTime, context: context, gameDescIndex: 4);
+    gameStep = GameStep(gameNumber: 5, gameName: '방향 바꾸기', timeLimit: limitTime, gameDescIndex: 4);
     world.add(gameStep);
   }
 

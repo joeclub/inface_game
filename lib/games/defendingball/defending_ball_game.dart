@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -14,13 +15,13 @@ class DefendingBallGame extends EduceGame {
 
   int matchScore = 30;
 
-  DefendingBallGame({required super.context});
-  
+  DefendingBallGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 13, gameName: '공 막아 내기', timeLimit: limitTime, context: context, gameDescIndex: 13);
+    gameStep = GameStep(gameNumber: 13, gameName: '공 막아 내기', timeLimit: limitTime, gameDescIndex: 13);
     world.add(gameStep);
   }
 

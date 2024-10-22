@@ -36,7 +36,9 @@ class StackBallGame extends EduceGame {
     style: const TextStyle(color: Colors.black, fontSize: 25),
   );
 
-  StackBallGame({required super.context});
+  bool isSecondHalfQuestion = false;
+
+  StackBallGame();
 
   @override
   Color backgroundColor() => Colors.white;
@@ -46,7 +48,7 @@ class StackBallGame extends EduceGame {
     super.onLoad();
 
     limitTime = 4 * 60;
-    gameStep = GameStep(gameNumber: 1, gameName: '공 탑 쌓기', timeLimit: limitTime, context: context, );
+    gameStep = GameStep(gameNumber: 1, gameName: '공 옮기기', timeLimit: limitTime, );
     world.add(gameStep);
   }
 
@@ -83,6 +85,8 @@ class StackBallGame extends EduceGame {
 
     currRound++;
     gameStep.updateRound();
+
+    isSecondHalfQuestion = isSecondHalf;
 
     while (true) {
       int numPillars = isSecondHalf ? 4 : 3;
@@ -238,9 +242,9 @@ class StackBallGame extends EduceGame {
   void checkCorrect() {
     if (compareStage() == false) return;
 
-    if( isSecondHalf ){
+    if( isSecondHalfQuestion ){
       if( stageAnswer!.lstPillars.length == 3 ) {
-        currScore += 150;
+        currScore += 200;
       } else {
         currScore += 250;
       }

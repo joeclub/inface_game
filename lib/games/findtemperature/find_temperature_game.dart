@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -34,13 +35,13 @@ class FindTemperatureGame extends EduceGame {
   late Sprite snowSprite;
   late Sprite snowPreseedSprite;
 
-  FindTemperatureGame({required super.context});
-      
+  FindTemperatureGame();
+
   @override
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 15, gameName: '기온 맞히기', timeLimit: limitTime, context: context, gameDescIndex: 15);
+    gameStep = GameStep(gameNumber: 15, gameName: '기온 맞히기', timeLimit: limitTime, gameDescIndex: 15);
     world.add(gameStep);
 
     lstAnswers.add(false);
