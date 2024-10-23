@@ -15,7 +15,7 @@ class EduceGame extends FlameGame {
   double currTime = 0;
   bool isInit = false;
 
-  bool isLoaded = false;
+  bool isLoadedGame = false;
 
   EduceGame();
   

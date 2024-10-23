@@ -90,7 +90,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
       Ball ball = ballQueue.first;
       if( ball.position.y > 400 ){
         if( isDefend ){
-          bool defendSuccess = laneIndex == ball.ballIndex;
+          bool defendSuccess = laneIndex != ball.ballIndex;
           ball.removeBall(400, defendSuccess);
           gameRef.addScore(defendSuccess ? 10 : -10);
           isDefend = false;
@@ -123,7 +123,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
   }
 
   void checkBall(Ball ball){
-    bool defendSuccess = laneIndex != ball.ballIndex;
+    bool defendSuccess = laneIndex == ball.ballIndex;
     ball.removeBall(460, defendSuccess);
     gameRef.addScore(defendSuccess ? 10 : -10);
     resetDefend();

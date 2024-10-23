@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
@@ -35,7 +36,10 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePatternGame>, 
     );
     if( isCorrect ) {
       gameRef.currScore += 50;
+    } else {
+      gameRef.currScore -= 50;
     }
+    gameRef.currScore = max(0, gameRef.currScore);
     gameRef.gameStep.updateScore(gameRef.currScore);
     add(effect);
     gameRef.resetGame2();

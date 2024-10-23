@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
-import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';

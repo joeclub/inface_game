@@ -15,7 +15,7 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
   bool isSecondHalf = false;
   bool isGameEnd = false;
 
-  int matchScore = 30;
+  int matchScore = 20;
 
   bool isMatched = false;
 

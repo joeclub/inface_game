@@ -136,9 +136,9 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
     isMatched = Random().nextInt(2) == 0;
 
     String strLeftText = lstTextColorData[leftIndex].colorName;
-    int leftColorIndex = Random().nextInt(lstTextColorData.length);
+    //int leftColorIndex = Random().nextInt(lstTextColorData.length);
 
-    MatchTextColorModel leftColorModel = lstTextColorData[leftColorIndex];
+    //MatchTextColorModel leftColorModel = lstTextColorData[leftColorIndex];
     //Color leftColor = Color.fromARGB(255, int.parse(leftColorModel.red), int.parse(leftColorModel.green), int.parse(leftColorModel.blue));
     leftText = TextComponent(
       anchor: Anchor.center,

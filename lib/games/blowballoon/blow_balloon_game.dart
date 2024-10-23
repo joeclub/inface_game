@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
-import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -36,7 +35,7 @@ class BlowBalloonGame extends EduceGame {
     gameStep = GameStep(gameNumber: 4, gameName: '풍선 불기', timeLimit: limitTime, gameDescIndex: 3);
     world.add(gameStep);
 
-    isLoaded = true;
+    isLoadedGame = true;
   }
 
   @override
