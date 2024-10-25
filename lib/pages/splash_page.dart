@@ -87,9 +87,15 @@ class _SplashPageState extends State<SplashPage> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  AutoRouter.of(context).push(const StackingBoxesRoute());
+                  AutoRouter.of(context).push(StackingBoxesRoute());
                 },
                 child: const Text("상자 쌓기"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  AutoRouter.of(context).push(StackingBoxesRoute( isEP: true ));
+                },
+                child: const Text("상자 쌓기(EP)"),
               ),
               ElevatedButton(
                 onPressed: () {

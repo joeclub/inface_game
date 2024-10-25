@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i28;
+import 'package:flutter/material.dart' as _i29;
 import 'package:inface/games/blowballoon/blow_balloon_page.dart' as _i1;
 import 'package:inface/games/cardflip/card_flip_page.dart' as _i2;
 import 'package:inface/games/changedirection/change_direction_page.dart' as _i3;
@@ -192,9 +193,14 @@ abstract class $AppRouter extends _i28.RootStackRouter {
       );
     },
     StackingBoxesRoute.name: (routeData) {
+      final args = routeData.argsAs<StackingBoxesRouteArgs>(
+          orElse: () => const StackingBoxesRouteArgs());
       return _i28.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i25.StackingBoxesPage(),
+        child: _i25.StackingBoxesPage(
+          key: args.key,
+          isEP: args.isEP,
+        ),
       );
     },
     StartRoute.name: (routeData) {
@@ -550,16 +556,40 @@ class StackBallRoute extends _i28.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i25.StackingBoxesPage]
-class StackingBoxesRoute extends _i28.PageRouteInfo<void> {
-  const StackingBoxesRoute({List<_i28.PageRouteInfo>? children})
-      : super(
+class StackingBoxesRoute extends _i28.PageRouteInfo<StackingBoxesRouteArgs> {
+  StackingBoxesRoute({
+    _i29.Key? key,
+    bool isEP = false,
+    List<_i28.PageRouteInfo>? children,
+  }) : super(
           StackingBoxesRoute.name,
+          args: StackingBoxesRouteArgs(
+            key: key,
+            isEP: isEP,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'StackingBoxesRoute';
 
-  static const _i28.PageInfo<void> page = _i28.PageInfo<void>(name);
+  static const _i28.PageInfo<StackingBoxesRouteArgs> page =
+      _i28.PageInfo<StackingBoxesRouteArgs>(name);
+}
+
+class StackingBoxesRouteArgs {
+  const StackingBoxesRouteArgs({
+    this.key,
+    this.isEP = false,
+  });
+
+  final _i29.Key? key;
+
+  final bool isEP;
+
+  @override
+  String toString() {
+    return 'StackingBoxesRouteArgs{key: $key, isEP: $isEP}';
+  }
 }
 
 /// generated route for

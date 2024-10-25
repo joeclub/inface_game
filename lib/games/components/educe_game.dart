@@ -17,7 +17,9 @@ class EduceGame extends FlameGame {
 
   bool isLoadedGame = false;
 
-  EduceGame();
+  bool isEP;
+
+  EduceGame({this.isEP = false});
   
   @override
   Color backgroundColor() => Colors.white;

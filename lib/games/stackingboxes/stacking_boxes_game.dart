@@ -26,7 +26,7 @@ class StackingBoxesGame extends EduceGame {
 
   bool isSecondHalfQuestion = false;
 
-  StackingBoxesGame();
+  StackingBoxesGame({required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -188,6 +188,7 @@ class StackingBoxesGame extends EduceGame {
       position: Vector2(356, 420),
       isSecondHalf: isSecondHalf,
     );
+    questionView!.boxCount;
     world.add(questionView!);
   }
 
