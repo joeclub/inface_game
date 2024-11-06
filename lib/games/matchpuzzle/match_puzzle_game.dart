@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../components/color_rect_component.dart';
 import '../components/educe_game.dart';

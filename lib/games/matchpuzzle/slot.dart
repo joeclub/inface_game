@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
-import 'package:flutter/material.dart';
 
 import 'highlight.dart';
 import 'match_puzzle_game.dart';
