@@ -37,6 +37,8 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
 
     gameStep = GameStep(gameNumber: 7, gameName: 'N번째 카드 맞추기', timeLimit: limitTime, gameDescIndex: 6, isKeyboardControl: true);
     world.add(gameStep);
+
+    
   }
 
   @override

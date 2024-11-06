@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import 'box.dart';
 import 'floor_tile.dart';
@@ -21,13 +22,14 @@ class Floor extends PositionComponent with HasGameRef<StackingBoxesGame>{
     scale = Vector2(0.8, 0.8);
 
     Sprite spriteFloor = await gameRef.loadSprite('games/stackingboxes/floor.png');
-    add(
-      SpriteComponent(
-        sprite: spriteFloor,
-        anchor: Anchor.center,
-        priority: 0,
-      ),
+    SpriteComponent floor = SpriteComponent(
+      sprite: spriteFloor,
+      anchor: Anchor.center,
+      priority: 0,
     );
+
+    floor.paint.filterQuality = FilterQuality.high;
+    add(floor);
 
     FloorTile floorTile = FloorTile(position: Vector2(-225, 0), boxIndex: 0, parentFloor: this );
     add(floorTile);

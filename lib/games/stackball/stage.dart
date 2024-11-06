@@ -44,7 +44,7 @@ class Stage extends PositionComponent {
 
     final floor = Floor()
       ..position = Vector2(0, 0)
-      ..size = resizeVector(Vector2(600, 30));
+      ..size = isAnswer ? Vector2(240, 15) : resizeVector(Vector2(600, 30));
     add(floor);
 
     addPillars();
@@ -52,7 +52,8 @@ class Stage extends PositionComponent {
   }
 
   void addPillars() {
-    double startPos = resizeScalar(-180);
+    double startPos = isAnswer ? -80 : resizeScalar(-180);
+    double interval = isAnswer ? 160 : resizeScalar(360);
     if (refStage == null) {
       List<int> lstBalls = <int>[];
 
@@ -63,7 +64,7 @@ class Stage extends PositionComponent {
       lstBalls.shuffle();
       for (int i = 0; i < numPillars; ++i) {
         Pillar p = Pillar(maxBalls: numBalls - i, stage: this)
-          ..position = Vector2(startPos + i * resizeScalar(360) / (numPillars - 1), 0)
+          ..position = Vector2(startPos + i * interval / (numPillars - 1), 0)
           ..size = resizeVector(Vector2(20, (numPillars - i) * 44));
 
         if (i == 0) {
@@ -77,7 +78,7 @@ class Stage extends PositionComponent {
     } else {
       for (int i = 0; i < numPillars; ++i) {
         Pillar p = Pillar(maxBalls: numBalls - i, stage: this)
-          ..position = Vector2(startPos + i * resizeScalar(360) / (numPillars - 1), 0)
+          ..position = Vector2(startPos + i * interval / (numPillars - 1), 0)
           ..size = resizeVector(Vector2(20, (numPillars - i) * 44));
 
         List<int> ballList = refStage!.lstPillars[i].stack.toList();

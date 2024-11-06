@@ -112,17 +112,25 @@ class GameDesc extends ColorRectComponent with HasGameRef {
       descTextList = gameDescModel.desc3;
     }
 
+    double margin = 0;
+
+    double lastTextY = 0;
+
     for( int i=0; i<descTextList.length; ++i){
+      if( descTextList[i] == '' ) margin += ( gameDescModel.descMargin != null ) ? gameDescModel.descMargin! : 0;
+      lastTextY = 30 + i * 21 + margin;
       TextComponent descText = TextComponent(
         anchor: Anchor.centerLeft,
         text: descTextList[i],
         textRenderer: TextPaint(
           style: const TextStyle(fontSize: 16, color: Color.fromARGB(255, 0, 4, 25)),
         ),
-        position: Vector2(30, 30 + i * 21),
+        position: Vector2(30, lastTextY),
       );
       leftParent!.add(descText);
     }
+
+    lastTextY += ( gameDescModel.descEndMargin != null ) ? gameDescModel.descEndMargin! : 50; 
 
     if( desc == 1 ){
       if(gameDescModel.addImage1 != null){
@@ -133,6 +141,7 @@ class GameDesc extends ColorRectComponent with HasGameRef {
             size: Vector2(gameDescModel.addImage1SizeX![i].toDouble(), gameDescModel.addImage1SizeY![i].toDouble()),
             sprite: lstAddedSprites[i],
           );
+          addedSprite.paint.filterQuality = FilterQuality.high;
           leftParent!.add(addedSprite);
         }
       }
@@ -144,7 +153,7 @@ class GameDesc extends ColorRectComponent with HasGameRef {
       textRenderer: TextPaint(
         style: const TextStyle(fontSize: 16, color: Color.fromARGB(255, 0, 4, 25), fontWeight: FontWeight.bold),
       ),
-      position: Vector2(30, 420),
+      position: Vector2(30, lastTextY),
     );
     leftParent!.add(descText);
 
@@ -209,6 +218,7 @@ class GameDesc extends ColorRectComponent with HasGameRef {
       size: imagePos,
       sprite: lstDescSprites[desc-1],
     );
+    descSprite.paint.filterQuality = FilterQuality.high;
     rightParent!.add(descSprite);
 
     TextComponent exText = TextComponent(

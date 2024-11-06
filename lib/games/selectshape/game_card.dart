@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 import 'select_shape_game.dart';
 
@@ -58,6 +59,10 @@ class GameCard extends SpriteComponent with HasGameRef<SelectShapeGame>, TapCall
     );
 
     cardBack = await gameRef.loadSprite('games/selectshape/card_back.png');
+
+    shapeComponent.paint.filterQuality = FilterQuality.high;
+    correctSpriteComponent.paint.filterQuality = FilterQuality.high;
+    paint.filterQuality = FilterQuality.high;
   }
 
   @override

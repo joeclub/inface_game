@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 import 'sort_ball_game.dart';
 
@@ -18,6 +19,7 @@ class Ball extends SpriteComponent with HasGameRef<SortBallGame>, DragCallbacks 
     size = Vector2.all(50);
     sprite = await gameRef.loadSprite('games/sortball/ball$ballIndex.png');
     oldPos = Vector2.copy(position);
+    paint.filterQuality = FilterQuality.high;
     return super.onLoad();
   }
 

@@ -67,14 +67,14 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
 
   @override
   void initGame(){
-    world.add(
-      SpriteComponent(
-        sprite: spriteInfo,
-        position: Vector2(640, 650),
-        size: Vector2(445, 30),
-        anchor: Anchor.center,
-      ),
+    SpriteComponent info = SpriteComponent(
+      sprite: spriteInfo,
+      position: Vector2(640, 650),
+      size: Vector2(445, 30),
+      anchor: Anchor.center,
     );
+    info.paint.filterQuality = FilterQuality.high;
+    world.add(info);
 
     leftButton = AnswerButton(
       position: Vector2(230, 400), 
@@ -117,7 +117,7 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
     }
 
     if( isSecondHalf ){
-      matchScore = 50;
+      matchScore = 30;
       background = SpriteComponent(
         sprite: secondHalfBackground,
         position: Vector2(640, 400),
@@ -226,7 +226,7 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
 
 
     } else {
-      matchScore = 30;
+      matchScore = 20;
       background = SpriteComponent(
         sprite: firstHalfBackground,
         position: Vector2(640, 400),

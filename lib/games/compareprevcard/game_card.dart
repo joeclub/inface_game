@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flutter/material.dart';
 
 import 'compare_prev_card_game.dart';
 
@@ -20,7 +21,7 @@ class GameCard extends SpriteComponent with HasGameRef<ComparePrevCardGame> {
 
     angle = cardIndex * unitAngle;
     init();
-    
+    paint.filterQuality = FilterQuality.high;
     return super.onLoad();
   }
 

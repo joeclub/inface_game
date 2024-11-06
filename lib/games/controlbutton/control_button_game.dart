@@ -98,6 +98,7 @@ class ControlButtonGame extends EduceGame {
       size: Vector2(414, 176),
       sprite: modeTableSprite,
     );
+    modeTable.paint.filterQuality = FilterQuality.high;
     tableBackground2.add(modeTable);
 
     buttonParent = PositionComponent(

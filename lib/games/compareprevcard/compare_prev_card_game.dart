@@ -80,6 +80,7 @@ class ComparePrevCardGame extends EduceGame with KeyboardEvents {
       size: Vector2(446, 30),
       anchor: Anchor.center
     );
+    guide.paint.filterQuality = FilterQuality.high;
     world.add(guide);
 
     leftButton = AnswerButton(

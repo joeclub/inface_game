@@ -10,7 +10,7 @@ import '../components/game_step.dart';
 import 'answer_button.dart';
 
 class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
-  final limitTime = 4 * 60;
+  final limitTime = 2 * 60;
   late GameStep gameStep;
   bool isSecondHalf = false;
   bool isGameEnd = false;
@@ -27,6 +27,7 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
   late AnswerButton rightButton;
 
   SpriteComponent? face;
+  late Sprite spriteInfo;
 
   MatchMouthLengthGame();
 
@@ -34,18 +35,10 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 12, gameName: '입 길이 판단하기', timeLimit: limitTime, gameDescIndex: 11, isKeyboardControl: true);
+    gameStep = GameStep(gameNumber: 12, gameName: '입 길이 판단하기', timeLimit: limitTime, gameDescIndex: 11, isKeyboardControl: true, isHalfTime: true);
     world.add(gameStep);
 
-    Sprite spriteInfo = await loadSprite('games/matchmouthlength/Group 1880.png');
-    world.add(
-      SpriteComponent(
-        sprite: spriteInfo,
-        position: Vector2(640, 650),
-        size: Vector2(445, 30),
-        anchor: Anchor.center,
-      ),
-    );
+    spriteInfo = await loadSprite('games/matchmouthlength/Group 1880.png');
 
     defaultMouthSprite = await loadSprite('games/matchmouthlength/FACE1_0.png'); 
     lstMouthSprites.add(await loadSprite('games/matchmouthlength/FACE1_1.png'));
@@ -73,6 +66,15 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
 
   @override
   void initGame(){
+    SpriteComponent info = SpriteComponent(
+      sprite: spriteInfo,
+      position: Vector2(640, 650),
+      size: Vector2(445, 30),
+      anchor: Anchor.center,
+    );
+    info.paint.filterQuality = FilterQuality.high;
+    world.add(info);
+
     leftButton = AnswerButton(
       position: Vector2(230, 400), 
       isLeft: true,
@@ -92,6 +94,8 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
   void resetGame(){
     currRound++;
     gameStep.updateRound();
+
+    matchScore = isSecondHalf ? 30 : 20;
 
     if( face != null ){
       world.remove(face!);
@@ -118,6 +122,7 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
       size: Vector2.all(330),
       anchor: Anchor.center,
     );
+    face!.paint.filterQuality = FilterQuality.high;
     world.add(face!);
 
     

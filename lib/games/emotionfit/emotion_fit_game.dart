@@ -174,6 +174,7 @@ class EmotionFitGame extends EduceGame {
       size: Vector2.all(300),
       sprite: sprite,
     );
+    emotionSprite!.paint.filterQuality = FilterQuality.high;
     world.add(emotionSprite!);
   }
 }

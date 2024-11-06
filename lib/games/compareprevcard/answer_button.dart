@@ -40,7 +40,7 @@ class AnswerButton extends SpriteComponent with HasGameRef<ComparePrevCardGame>,
     if( isCorrect ) {
       gameRef.currScore += 50;
     } else {
-      gameRef.currScore -= 50;
+      gameRef.currScore -= 40;
     }
     gameRef.currScore = max(0, gameRef.currScore);
     gameRef.gameStep.updateScore(gameRef.currScore);

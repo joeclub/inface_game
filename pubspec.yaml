@@ -110,6 +110,7 @@ flutter:
     - assets/images/games/comparepicture/
     - assets/images/games/matchclip/
     - assets/images/games/comparefigure/
+    - assets/images/games/matchpuzzle/
     
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

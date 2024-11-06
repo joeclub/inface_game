@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import 'ball.dart';
 
@@ -14,6 +15,7 @@ class BallSocket extends SpriteComponent with HasGameRef {
     size = isScale ? Vector2.all(130) : Vector2.all(70);
     String spriteName = isScale ? 'compareBallBg' : 'resultBallBg';
     sprite = await gameRef.loadSprite('games/sortball/$spriteName.png');
+    paint.filterQuality = FilterQuality.high;
     return super.onLoad();
   }
 

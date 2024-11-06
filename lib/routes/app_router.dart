@@ -146,5 +146,10 @@ class AppRouter extends $AppRouter {
           type: const CustomRouteType(
               transitionsBuilder: TransitionsBuilders.noTransition),
         ),
+        AutoRoute(
+          page: MatchPuzzleRoute.page,
+          type: const CustomRouteType(
+              transitionsBuilder: TransitionsBuilders.noTransition),
+        ),
       ];
 }

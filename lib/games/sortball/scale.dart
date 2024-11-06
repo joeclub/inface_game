@@ -27,11 +27,14 @@ class Scale extends PositionComponent with HasGameRef<SortBallGame> {
     add(rightSocket);
 
     Vector2 scaleBasePos = Vector2(0, 30);
-    add(SpriteComponent(
-        sprite: await gameRef.loadSprite('games/sortball/ballscale.png'),
+    Sprite spriteBallScale = await gameRef.loadSprite('games/sortball/ballscale.png');
+    SpriteComponent ballScaleComponent = SpriteComponent(
+        sprite: spriteBallScale,
         position: scaleBasePos,
         anchor: Anchor.center,
-        size: Vector2(660, 75)));
+        size: Vector2(660, 75));
+    ballScaleComponent.paint.filterQuality = FilterQuality.high;
+    add(ballScaleComponent);
 
     add(SpriteComponent(
         sprite: await gameRef.loadSprite('games/sortball/spots.png'),

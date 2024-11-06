@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 import 'match_emotion_game.dart';
 
@@ -21,6 +22,7 @@ class Emotion extends SpriteComponent with HasGameRef<MatchEmotionGame>, TapCall
     size = Vector2(200, 208);
     spriteTapped = await gameRef.loadSprite('games/matchemotion/over_chk@2x.png');
     sprite = await gameRef.loadSprite('games/emotionfit/$spriteName');
+    paint.filterQuality = FilterQuality.high;
     return super.onLoad();
   }
 

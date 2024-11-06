@@ -27,10 +27,10 @@ class Ball extends SpriteComponent with HasGameRef<DefendingBallGame>{
   FutureOr<void> onLoad() async {
     anchor = Anchor.center;
     size = Vector2.all(100);
-    String ballName = BallType.values[ballIndex].name;
-    sprite = await gameRef.loadSprite('games/defendingball/ball_${ballName}_def.png');
-    spriteTouch = await gameRef.loadSprite('games/defendingball/ball_${ballName}_touch.png');
-    spriteVanish = await gameRef.loadSprite('games/defendingball/ball_${ballName}_vanish.png');
+    //String ballName = BallType.values[ballIndex].name;
+    sprite = gameRef.lstSpriteBall[ballIndex];
+    spriteTouch = gameRef.lstSpriteTouch[ballIndex];
+    spriteVanish = gameRef.lstSpriteVanish[ballIndex];
 
     return super.onLoad();
   }
@@ -56,7 +56,10 @@ class Ball extends SpriteComponent with HasGameRef<DefendingBallGame>{
   void addEffect(){
     sprite = isDefended ? spriteVanish : spriteTouch;
     add(
-      OpacityEffect.to(0, EffectController(duration: 0.5)),
+      OpacityEffect.to(0, EffectController(duration: 0.5),
+      onComplete: (){
+        parentLane.removeBall(this);
+      })
     );
   }
 

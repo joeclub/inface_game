@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 import 'card_flip_game.dart';
 
@@ -24,12 +25,14 @@ class GameCard extends SpriteComponent with HasGameRef<CardFlipGame>, TapCallbac
     front2 = await gameRef.loadSprite('games/cardflip/cardforground1.png');
     back = await gameRef.loadSprite('games/cardflip/cardbackground.png');
     sprite = back;
+    paint.filterQuality = FilterQuality.high;
     return super.onLoad();
   }
 
   @override
   void onTapUp(TapUpEvent event) {
     super.onTapUp(event);
+    if( isFlipped == true ) return;
     gameRef.scoreBoard!.setScore(isHappiness);
     flip();
   }

@@ -139,14 +139,14 @@ class StackBallGame extends EduceGame {
     world.add(ColorRectComponent(
         anchor: Anchor.topCenter,
         position: Vector2(250, 150),
-        size: Vector2(360, 325),
+        size: Vector2(300, 325),
         color: answerBackgroundColor));
 
     const Color scoreBackgroundColor = Colors.white;
     world.add(ColorRectComponent(
         anchor: Anchor.topCenter,
         position: Vector2(250, 475),
-        size: Vector2(360, 173),
+        size: Vector2(300, 173),
         color: scoreBackgroundColor));
 
     world.add(TextComponent(
@@ -243,13 +243,15 @@ class StackBallGame extends EduceGame {
     if (compareStage() == false) return;
 
     if( isSecondHalfQuestion ){
-      if( stageAnswer!.lstPillars.length == 3 ) {
+      //if( stageAnswer!.lstPillars.length == 3 ) {
+      if( minMoveCount < currMoveCount ) {
         currScore += 200;
       } else {
         currScore += 250;
       }
     } else {
-      if( stageAnswer!.lstPillars.length == 3 ) {
+      //if( stageAnswer!.lstPillars.length == 3 ) {
+      if( minMoveCount < currMoveCount ) {
         currScore += 100;
       } else {
         currScore += 200;

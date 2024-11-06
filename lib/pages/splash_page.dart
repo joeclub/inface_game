@@ -193,6 +193,12 @@ class _SplashPageState extends State<SplashPage> {
                 },
                 child: const Text("도형 비교"),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  AutoRouter.of(context).push(const MatchPuzzleRoute());
+                },
+                child: const Text("퍼즐 맞추기"),
+              ),
             ],
           ),
         ),

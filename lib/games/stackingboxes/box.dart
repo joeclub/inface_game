@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
+import 'package:flutter/material.dart';
 
 import 'floor.dart';
 import 'stacking_boxes_game.dart';
@@ -20,7 +21,7 @@ class Box extends SpriteComponent with HasGameRef<StackingBoxesGame>, TapCallbac
     anchor = Anchor.center;
     size = Vector2(145, 133);
     sprite = await gameRef.loadSprite('games/stackingboxes/box.png');
-
+    paint.filterQuality = FilterQuality.high;
     //add(BoxTappable(position: size * 0.5, parentBox: this));
 
     return super.onLoad();

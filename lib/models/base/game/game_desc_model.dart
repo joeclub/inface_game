@@ -12,6 +12,8 @@ class GameDescModel {
     int descCount;
     String desc;
     List<String> desc1;
+    int? descMargin;
+    int? descEndMargin;
     String image1;
     int image1SizeX;
     int image1SizeY;
@@ -33,6 +35,8 @@ class GameDescModel {
         required this.descCount,
         required this.desc,
         required this.desc1,
+        this.descMargin,
+        this.descEndMargin,
         required this.image1,
         required this.image1SizeX,
         required this.image1SizeY,
@@ -55,6 +59,8 @@ class GameDescModel {
         descCount: json["descCount"],
         desc: json["desc"],
         desc1: List<String>.from(json["desc1"].map((x) => x)),
+        descMargin: json["descMargin"],
+        descEndMargin: json["descEndMargin"],
         image1: json["image1"],
         image1SizeX: json["image1SizeX"],
         image1SizeY: json["image1SizeY"],
@@ -77,6 +83,8 @@ class GameDescModel {
         "descCount": descCount,
         "desc": desc,
         "desc1": List<dynamic>.from(desc1.map((x) => x)),
+        "descMargin": descMargin,
+        "descEndMargin": descEndMargin,
         "image1": image1,
         "image1SizeX": image1SizeX,
         "image1SizeY": image1SizeY,

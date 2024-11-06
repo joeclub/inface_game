@@ -15,7 +15,7 @@ enum LaneType{
 }
 
 class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallbacks {
-  Lane( {required super.position, required this.laneIndex} );
+  Lane( {required super.position, required this.laneIndex, required this.reset} );
   
   int laneIndex;
   double lifeTime = 20;
@@ -30,6 +30,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
   late ClipComponent clipComponent;
 
   bool isDefend = false;
+  bool reset;
   late SpriteComponent defendSpriteComponent;
 
   @override
@@ -78,7 +79,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
 
     if( currLifeTime > lifeTime ){
       isLifeEnd = true;
-      gameRef.removeLane(this);
+      gameRef.removeLane(this, reset);
     }
 
     if( currTime > ballInterval ){
@@ -134,5 +135,9 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
       isDefend = false;
       remove(defendSpriteComponent);
     }
+  }
+
+  void removeBall(Ball ball){
+    clipComponent.remove(ball);
   }
 }

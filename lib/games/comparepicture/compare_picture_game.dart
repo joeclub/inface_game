@@ -101,6 +101,7 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
       size: Vector2(445, 30),
       anchor: Anchor.center,
     );
+    guideComponent.paint.filterQuality = FilterQuality.high;
 
     background1.add(guideComponent);
   }
@@ -134,6 +135,7 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
       size: Vector2(300, 250),
       anchor: Anchor.center,
     );
+    leftPicture!.paint.filterQuality = FilterQuality.high;
 
     background1.add(leftPicture!);
 
@@ -143,6 +145,7 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
       size: Vector2(300, 250),
       anchor: Anchor.center,
     );
+    rightPicture!.paint.filterQuality = FilterQuality.high;
 
     background1.add(rightPicture!);
 

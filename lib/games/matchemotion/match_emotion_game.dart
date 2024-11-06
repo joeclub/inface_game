@@ -10,7 +10,7 @@ import 'emotion.dart';
 import 'next_button.dart';
 
 class MatchEmotionGame extends EduceGame {
-  final limitTime = 4 * 60;
+  final limitTime = 2 * 60;
   late GameStep gameStep;
   bool isSecondHalf = false;
   bool isGameEnd = false;
@@ -33,7 +33,7 @@ class MatchEmotionGame extends EduceGame {
   Future<void> onLoad() async {
     super.onLoad();
 
-    gameStep = GameStep(gameNumber: 3, gameName: '같은 감정 맞히기', timeLimit: limitTime, isCat: true, gameDescIndex: 12 );
+    gameStep = GameStep(gameNumber: 3, gameName: '같은 감정 맞히기', timeLimit: limitTime, isCat: true, gameDescIndex: 12, isHalfTime: true );
     world.add(gameStep);
   }
 
