@@ -21,8 +21,6 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
   Pool? ballPool;
   Answer? answer;
 
-  bool isSecondHalf = false;
-
   List<SortBallModel> lstPoolBalls = [];
   List<Ball> lstBallComponents = [];
   Scale? scale;
@@ -61,7 +59,10 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
     }
   }
 
-  void endGame() {}
+  @override
+  void endGame() {
+    super.endGame();
+  }
 
   @override
   void initGame(){
@@ -167,7 +168,7 @@ class SortBallGame extends EduceGame with HasGameRef<SortBallGame> {
         if( minCount < tryCount ) {
           currScore += 100;
         } else {
-          currScore += 200;
+          currScore += 150;
         }
       }
     }

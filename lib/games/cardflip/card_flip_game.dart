@@ -15,14 +15,13 @@ class CardFlipGame extends EduceGame {
   final numCards = 4 * 8;
   List<GameCard> lstCards = [];
   late ColorRectComponent playBoard;
-  bool isSecondHalf = false;
   int unhappinessCount = 0;
   ScoreBoard? scoreBoard;
 
   bool isStageEnding = false;
   bool isTweening = false;
 
-  CardFlipGame();
+  CardFlipGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -43,7 +42,10 @@ class CardFlipGame extends EduceGame {
     }
   }
 
-  void endGame() {}
+  @override
+  void endGame() {
+    super.endGame();
+  }
 
   @override
   void initGame(){

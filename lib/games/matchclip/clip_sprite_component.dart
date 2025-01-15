@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import 'match_clip_game.dart';
 
@@ -16,6 +17,7 @@ class ClipSpriteComponent extends SpriteComponent with HasGameRef<MatchClipGame>
     anchor = Anchor.center;
     size = Vector2(22, 60);
     sprite = gameRef.lstClipSprites[spriteIndex];
+    paint.filterQuality = FilterQuality.high;
     
     switch(rotationIndex){
       case 0:{

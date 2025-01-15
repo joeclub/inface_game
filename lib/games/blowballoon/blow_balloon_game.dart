@@ -12,7 +12,6 @@ import 'scoreboard.dart';
 class BlowBalloonGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   Balloon? balloon;
   BalloonBottom? balloonBottom;
   late Pump pump;
@@ -26,7 +25,7 @@ class BlowBalloonGame extends EduceGame {
   int accumulatedProfit = 0;
   bool isGameEnd = false;
 
-  BlowBalloonGame();
+  BlowBalloonGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
   
   @override
   Future<void> onLoad() async {
@@ -49,10 +48,12 @@ class BlowBalloonGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
     remainBalloon = 0;
     scoreBoard!.updateScore(remainBalloon, expectedProfit, accumulatedProfit);
+    super.endGame();
   }
 
   @override

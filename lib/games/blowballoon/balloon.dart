@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flutter/material.dart';
 
 class Balloon extends SpriteComponent with HasGameRef {
   Balloon({required super.position, required this.balloonIndex});
@@ -15,6 +16,7 @@ class Balloon extends SpriteComponent with HasGameRef {
     anchor = Anchor.bottomCenter;
     size = Vector2(34, 44);
     sprite = await gameRef.loadSprite('games/blowballoon/balloon${balloonIndex+1}.png');
+    paint.filterQuality = FilterQuality.high;
 
     return super.onLoad();
   }

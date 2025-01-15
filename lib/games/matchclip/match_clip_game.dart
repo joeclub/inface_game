@@ -14,7 +14,6 @@ import 'submit_button.dart';
 class MatchClipGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   ColorRectComponent? background;
 
@@ -71,7 +70,9 @@ class MatchClipGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

@@ -15,7 +15,7 @@ class MatchEmotionPage extends StatefulWidget {
 
 class _MatchEmotionPageState extends State<MatchEmotionPage> {
   
-  final MatchEmotionGame _game = MatchEmotionGame();
+  final MatchEmotionGame _game = MatchEmotionGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

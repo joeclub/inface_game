@@ -13,7 +13,6 @@ import 'submit_button.dart';
 class MatchPuzzleGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   late ColorRectComponent leftBackground;
@@ -54,8 +53,10 @@ class MatchPuzzleGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
+    super.endGame();
   }
 
   @override

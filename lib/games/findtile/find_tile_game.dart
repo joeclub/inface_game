@@ -10,7 +10,6 @@ import 'tile.dart';
 class FindTileGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   List<Tile> lstTiles = [];
@@ -25,7 +24,7 @@ class FindTileGame extends EduceGame {
   late Sprite s1;
   late Sprite s2;
 
-  FindTileGame();
+  FindTileGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -55,9 +54,10 @@ class FindTileGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

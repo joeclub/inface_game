@@ -12,7 +12,6 @@ import 'answer_button.dart';
 class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
   final limitTime = 2 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   int matchScore = 20;
@@ -59,9 +58,10 @@ class MatchMouthLengthGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

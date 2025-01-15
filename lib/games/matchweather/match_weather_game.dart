@@ -12,7 +12,6 @@ import 'game_card.dart';
 class MatchWeatherGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   int answerIndex = 0;
 
@@ -24,7 +23,7 @@ class MatchWeatherGame extends EduceGame {
 
   bool isClicked = false;
 
-  MatchWeatherGame();
+  MatchWeatherGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -52,7 +51,9 @@ class MatchWeatherGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

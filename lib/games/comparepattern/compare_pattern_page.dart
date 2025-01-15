@@ -15,7 +15,7 @@ class ComparePatternPage extends StatefulWidget {
 
 class _ComparePatternPageState extends State<ComparePatternPage> {
 
-  final ComparePatternGame _game = ComparePatternGame();
+  final ComparePatternGame _game = ComparePatternGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

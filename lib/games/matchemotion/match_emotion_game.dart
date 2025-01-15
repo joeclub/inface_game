@@ -12,7 +12,6 @@ import 'next_button.dart';
 class MatchEmotionGame extends EduceGame {
   final limitTime = 2 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   TextComponent? question;
@@ -27,7 +26,7 @@ class MatchEmotionGame extends EduceGame {
   int emotionIndex = 0;
   List<int> lstEmotionIndices = [];
 
-  MatchEmotionGame();
+  MatchEmotionGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -50,9 +49,10 @@ class MatchEmotionGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

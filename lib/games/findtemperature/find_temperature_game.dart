@@ -11,7 +11,6 @@ import 'temperature_button.dart';
 class FindTemperatureGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   late SpriteComponent background;
@@ -34,7 +33,7 @@ class FindTemperatureGame extends EduceGame {
   late Sprite snowSprite;
   late Sprite snowPreseedSprite;
 
-  FindTemperatureGame();
+  FindTemperatureGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -93,9 +92,10 @@ class FindTemperatureGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

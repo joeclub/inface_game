@@ -13,7 +13,6 @@ import 'answer_button.dart';
 class ComparePictureGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   late Sprite guide;
   bool isMatched = false;
@@ -26,7 +25,7 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
   SpriteComponent? leftPicture;
   SpriteComponent? rightPicture;
   
-  ComparePictureGame();
+  ComparePictureGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -51,7 +50,9 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override
@@ -148,6 +149,26 @@ class ComparePictureGame extends EduceGame with KeyboardEvents {
     rightPicture!.paint.filterQuality = FilterQuality.high;
 
     background1.add(rightPicture!);
+
+    TextComponent textA = TextComponent(
+      anchor: Anchor.center,
+      text: '<그림 A>',
+      textRenderer: TextPaint(
+        style: const TextStyle(fontSize: 15, color: Colors.black),
+      ),
+      position: background1.size * 0.5 + Vector2( -170, 150),
+    );
+    background1.add(textA);
+
+    TextComponent textB = TextComponent(
+      anchor: Anchor.center,
+      text: '<그림 B>',
+      textRenderer: TextPaint(
+        style: const TextStyle(fontSize: 15, color: Colors.black),
+      ),
+      position: background1.size * 0.5 + Vector2( 170, 150),
+    );
+    background1.add(textB);
 
   }
 

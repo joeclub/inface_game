@@ -15,7 +15,7 @@ class ControlButtonPage extends StatefulWidget {
 
 class _ControlButtonPageState extends State<ControlButtonPage> {
 
-  final ControlButtonGame _game = ControlButtonGame();
+  final ControlButtonGame _game = ControlButtonGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

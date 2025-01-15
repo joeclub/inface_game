@@ -16,7 +16,6 @@ import 'transform_component.dart';
 class CompareFigureGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   List<Sprite> lstRects = [];
   List<Sprite> lstCircles = [];
@@ -104,7 +103,9 @@ class CompareFigureGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

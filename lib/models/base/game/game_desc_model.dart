@@ -30,6 +30,10 @@ class GameDescModel {
     String image3;
     int image3SizeX;
     int image3SizeY;
+    List<String>? descColor2;
+    int? descColorValue2;
+    int? descColorPosX2;
+    int? descColorPosY2;
 
     GameDescModel({
         required this.descCount,
@@ -53,6 +57,10 @@ class GameDescModel {
         required this.image3,
         required this.image3SizeX,
         required this.image3SizeY,
+        this.descColor2,
+        this.descColorValue2,
+        this.descColorPosX2,
+        this.descColorPosY2,
     });
 
     factory GameDescModel.fromJson(Map<String, dynamic> json) => GameDescModel(
@@ -77,6 +85,10 @@ class GameDescModel {
         image3: json["image3"],
         image3SizeX: json["image3SizeX"],
         image3SizeY: json["image3SizeY"],
+        descColor2: json["descColor2"] == null ? [] : List<String>.from(json["descColor2"]!.map((x) => x)),
+        descColorValue2: json["descColorValue2"],
+        descColorPosX2: json["descColorPosX2"],
+        descColorPosY2: json["descColorPosY2"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -101,5 +113,9 @@ class GameDescModel {
         "image3": image3,
         "image3SizeX": image3SizeX,
         "image3SizeY": image3SizeY,
+        "descColor2": descColor2 == null ? [] : List<dynamic>.from(descColor2!.map((x) => x)),
+        "descColorValue2": descColorValue2,
+        "descColorPosX2": descColorPosX2,
+        "descColorPosY2": descColorPosY2,
     };
 }

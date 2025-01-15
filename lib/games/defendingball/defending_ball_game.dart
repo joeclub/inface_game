@@ -10,7 +10,6 @@ import 'lane.dart';
 class DefendingBallGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = true;
   bool isGameEnd = false;
 
   //int matchScore = 30;
@@ -51,9 +50,10 @@ class DefendingBallGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

@@ -15,7 +15,7 @@ class MatchWeatherPage extends StatefulWidget {
 
 class _MatchWeatherPageState extends State<MatchWeatherPage> {
   
-  final MatchWeatherGame _game = MatchWeatherGame();
+  final MatchWeatherGame _game = MatchWeatherGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

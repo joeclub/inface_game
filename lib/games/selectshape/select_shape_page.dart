@@ -15,7 +15,7 @@ class SelectShapePage extends StatefulWidget {
 
 class _SelectShapePageState extends State<SelectShapePage> {
   
-  final SelectShapeGame _game = SelectShapeGame();
+  final SelectShapeGame _game = SelectShapeGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

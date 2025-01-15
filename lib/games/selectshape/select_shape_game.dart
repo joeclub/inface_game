@@ -45,7 +45,6 @@ enum ShapeType{
 class SelectShapeGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   bool isMatched = false;
 
@@ -62,7 +61,7 @@ class SelectShapeGame extends EduceGame {
   Timer? timer;
   int cardCount = 0;
 
-  SelectShapeGame();
+  SelectShapeGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -93,7 +92,9 @@ class SelectShapeGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

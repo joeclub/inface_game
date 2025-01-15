@@ -14,7 +14,6 @@ import 'answer_button.dart';
 class MatchTextColorGame extends EduceGame with KeyboardEvents {
   final limitTime = 2 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   List<MatchTextColorModel> lstTextColorData = [];
 
@@ -58,7 +57,9 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

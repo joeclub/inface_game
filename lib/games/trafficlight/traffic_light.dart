@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import 'traffic_light_game.dart';
 
@@ -51,6 +52,8 @@ class TrafficLight extends SpriteComponent  with HasGameRef<TrafficLightGame> {
       shift = shift >> 1;
       on1 = on1 & shift;
     }
+
+    paint.filterQuality = FilterQuality.high;
     
     return super.onLoad();
   }

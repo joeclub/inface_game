@@ -62,7 +62,12 @@ class Pipe extends SpriteComponent with HasGameRef<ChangeDirectionGame> {
           remove(female);
           remove(male);
           bool isCorrect = female.dir == 0;
-          if( isCorrect ) gameRef.currScore += 10;
+          if( isCorrect ) 
+          {
+            gameRef.currScore += 10;
+            gameRef.count++;
+            gameRef.countText.text = gameRef.count.toString();
+          }
           CorrectEffect correctEffect = CorrectEffect(
             position: Vector2(femalePos, 23),
             isCorrect: isCorrect,
@@ -79,7 +84,12 @@ class Pipe extends SpriteComponent with HasGameRef<ChangeDirectionGame> {
           remove(female);
           remove(male);
           bool isCorrect = female.dir == 1;
-          if( isCorrect ) gameRef.currScore += 10;
+          if( isCorrect )
+          {
+            gameRef.currScore += 10;
+            gameRef.count++;
+            gameRef.countText.text = gameRef.count.toString();
+          }
           CorrectEffect correctEffect = CorrectEffect(
             position: Vector2(femalePos, 23),
             isCorrect: isCorrect,

@@ -45,6 +45,7 @@ class GameCard extends SpriteComponent with HasGameRef<MatchNthCardGame>, HasVis
     lstCards.add(cardSprite);
 
     sprite = cardBack;
+    paint.filterQuality = FilterQuality.high;
 
     currPhase = MatchNthCardPhase.ready;
 

@@ -13,7 +13,6 @@ import 'game_card.dart';
 class ComparePrevCardGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   
   List<int> lstCardHistory = [];
 
@@ -31,7 +30,7 @@ class ComparePrevCardGame extends EduceGame with KeyboardEvents {
   late GameCard card;
   late int cardIndex;
 
-  ComparePrevCardGame();
+  ComparePrevCardGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -61,7 +60,9 @@ class ComparePrevCardGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

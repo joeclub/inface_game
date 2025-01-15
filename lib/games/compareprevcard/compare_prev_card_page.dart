@@ -15,7 +15,7 @@ class ComparePrevCardPage extends StatefulWidget {
 
 class _ComparePrevCardPageState extends State<ComparePrevCardPage> {
 
-  final ComparePrevCardGame _game = ComparePrevCardGame();
+  final ComparePrevCardGame _game = ComparePrevCardGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

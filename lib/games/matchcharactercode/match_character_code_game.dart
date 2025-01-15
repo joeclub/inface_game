@@ -12,7 +12,6 @@ import 'answer_button.dart';
 class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   int matchScore = 20;
@@ -60,9 +59,10 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override
@@ -117,7 +117,7 @@ class MatchCharacterCodeGame extends EduceGame with KeyboardEvents {
     }
 
     if( isSecondHalf ){
-      matchScore = 30;
+      matchScore = 50;
       background = SpriteComponent(
         sprite: secondHalfBackground,
         position: Vector2(640, 400),

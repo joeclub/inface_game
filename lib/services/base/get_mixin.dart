@@ -27,6 +27,26 @@ mixin GetHelper {
     }
   }
 
+  Future<http.Response> httpGet2(String urlPath,
+      {Map<String, dynamic>? queryParameters}) async {
+    try {
+      var url = Uri.https(completeUrl, urlPath, queryParameters);
+
+      checkUri(url);
+
+      var response = await http.get(url, headers: {
+        'Content-Type': 'application/json',
+      });
+
+      checkResponse(response);
+      return response;
+    } catch (error) {
+      BaseModel baseModel = BaseModel(msg: error.toString(), result: 0);
+      String json = baseModelToJson(baseModel);
+      return http.Response(json, 408);
+    }
+  }
+
   Future<http.Response> httpGetAuth(String urlPath,
       {Map<String, dynamic>? queryParameters}) async {
     var url = Uri.http(baseUrl, urlPath, queryParameters);

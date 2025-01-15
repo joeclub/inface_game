@@ -4,6 +4,7 @@ import 'package:flame/components.dart';
 import 'package:flame/input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:inface/games/components/color_rect_round_component.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -21,7 +22,6 @@ enum PatternCheckType
 class ComparePatternGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   
   late Emitter emitter;
 
@@ -32,6 +32,7 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
   late AnswerButton leftButton;
   late AnswerButton rightButton;
 
+  late ColorRectRoundComponent textBackground;
   late TextComponent questionText;
 
   bool isMatched = false;
@@ -42,7 +43,7 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
 
   List<Sprite> lstPatterns = [];
 
-  ComparePatternGame();
+  ComparePatternGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -78,7 +79,9 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override
@@ -114,15 +117,25 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
     world.add(rightButton);
     rightButton.isVisible = false;
 
+    textBackground = ColorRectRoundComponent(
+      color: const Color.fromARGB(255, 234, 236, 245),
+      radius: 24,
+      position: Vector2(640, 220),
+      size: Vector2(372, 48),
+      anchor: Anchor.center,
+    );
+    textBackground.isVisible = false;
+    world.add(textBackground);
+
     questionText = TextComponent(
       anchor: Anchor.center,
       text: '',
       textRenderer: TextPaint(
-        style: const TextStyle(fontSize: 18, color: Colors.white),
+        style: const TextStyle(fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
       ),
-      position: Vector2(640, 220),
+      position: textBackground.size * 0.5,
     );
-    world.add(questionText);
+    textBackground.add(questionText);
 
     emitter = Emitter(
       position: Vector2(640, 420),
@@ -238,6 +251,7 @@ class ComparePatternGame extends EduceGame with KeyboardEvents {
     lastCount = patternCount;
 
     questionText.text = "이전 패턴과 $typeText $sameText";
+    textBackground.isVisible = true;
   }
 
   @override

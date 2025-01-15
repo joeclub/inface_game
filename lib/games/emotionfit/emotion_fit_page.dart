@@ -15,7 +15,7 @@ class EmotionFitPage extends StatefulWidget {
 
 class _EmotionFitPageState extends State<EmotionFitPage> {
   
-  final EmotionFitGame _game = EmotionFitGame();
+  final EmotionFitGame _game = EmotionFitGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

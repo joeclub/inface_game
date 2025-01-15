@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flutter/material.dart';
 
 import 'game_card.dart';
 import 'game_card_array.dart';
@@ -11,7 +12,9 @@ class ArrayCard extends SpriteComponent with HasGameRef<MatchNthCardGame>{
   ArrayCard( {required super.position, required super.sprite, required this.cardIndex, required this.parentArray, required this.cardFront} ) :
     super(
       size: Vector2(150, 150),
-      anchor: Anchor.center);
+      anchor: Anchor.center){
+        paint.filterQuality = FilterQuality.high;
+  }
   int cardIndex;
   GameCardArray parentArray;
 

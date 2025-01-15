@@ -12,7 +12,6 @@ import 'traffic_light.dart';
 class TrafficLightGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   TrafficLightGame();
 
@@ -93,7 +92,9 @@ class TrafficLightGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override
@@ -216,6 +217,7 @@ class TrafficLightGame extends EduceGame {
         size: lstConditionSizes[i],
         sprite: lstContidions[i]
       );
+      condition.paint.filterQuality = FilterQuality.high;
       background.add(condition);
     }
 

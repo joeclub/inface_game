@@ -15,7 +15,7 @@ class ComparePicturePage extends StatefulWidget {
 
 class _ComparePicturePageState extends State<ComparePicturePage> {
 
-  final ComparePictureGame _game = ComparePictureGame();
+  final ComparePictureGame _game = ComparePictureGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

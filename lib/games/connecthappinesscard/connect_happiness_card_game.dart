@@ -13,7 +13,6 @@ import 'select_button.dart';
 class ConnectHappinessCardGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   
   late ScoreBoard scoreBoard;
 
@@ -60,7 +59,9 @@ class ConnectHappinessCardGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

@@ -15,7 +15,6 @@ import 'switch_component.dart';
 class ControlButtonGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   List<ControlButtonModel> lstButtons = [];
@@ -28,7 +27,7 @@ class ControlButtonGame extends EduceGame {
   int currValue = 0;
   int currIndex = 0;
 
-  ControlButtonGame();
+  ControlButtonGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -40,7 +39,7 @@ class ControlButtonGame extends EduceGame {
     String json = await rootBundle.loadString('assets/games/controlbutton/controlbutton.json');
     lstButtons = controlButtonModelFromJson(json);
 
-    modeTableSprite = await loadSprite('games/controlbutton/info.png');
+    modeTableSprite = await loadSprite('games/controlbutton/Info.png');
 
     // initGame();
     // resetGame();
@@ -59,9 +58,10 @@ class ControlButtonGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
-
+    super.endGame();
   }
 
   @override

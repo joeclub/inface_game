@@ -104,10 +104,20 @@ class GameDesc extends ColorRectComponent with HasGameRef {
     rightBackground.add(rightParent!);
 
     List<String> descTextList = [];
+    List<String>? descTextColorList;
+    int descTextColor = 0;
+    int descTextColorPosY = 0;
     if( desc == 1 ){
       descTextList = gameDescModel.desc1;
     } else if ( desc == 2) {
       descTextList = gameDescModel.desc2;
+      descTextColorList = gameDescModel.descColor2;
+      if( gameDescModel.descColorValue2 != null ){
+        descTextColor = gameDescModel.descColorValue2!;
+      }
+      if( gameDescModel.descColorPosY2 != null ){
+        descTextColorPosY = gameDescModel.descColorPosY2!;
+      }
     } else {
       descTextList = gameDescModel.desc3;
     }
@@ -129,6 +139,25 @@ class GameDesc extends ColorRectComponent with HasGameRef {
       );
       leftParent!.add(descText);
     }
+
+    double marginColor = 0;
+    double lastTextYColor = 0;
+    if( descTextColorList != null ){
+      for( int i=0; i<descTextColorList.length; ++i){
+        if( descTextList[i] == '' ) marginColor += ( gameDescModel.descMargin != null ) ? gameDescModel.descMargin! : 0;
+        lastTextYColor = 30 + i * 21 + marginColor + descTextColorPosY;
+        TextComponent descText = TextComponent(
+          anchor: Anchor.centerLeft,
+          text: descTextColorList[i],
+          textRenderer: TextPaint(
+            style: TextStyle(fontSize: 16, color: Color(descTextColor)),
+          ),
+          position: Vector2(30, lastTextYColor),
+        );
+        leftParent!.add(descText);
+      }
+    }
+    
 
     lastTextY += ( gameDescModel.descEndMargin != null ) ? gameDescModel.descEndMargin! : 50; 
 

@@ -14,7 +14,6 @@ import 'game_card_array.dart';
 class MatchNthCardGame extends EduceGame with KeyboardEvents {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   bool isGameEnd = false;
 
   late TextComponent missionText;
@@ -45,11 +44,14 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
   void update(double dt) {
     super.update(dt);
 
-    currRoundTime += dt;
-
-    if (gameStep.limitTimer.current > gameStep.halfTime) {
-      isSecondHalf = true;
+    if( isInit ){
+      currRoundTime += dt;
     }
+    
+
+    // if (gameStep.limitTimer.current > gameStep.halfTime) {
+    //   isSecondHalf = true;
+    // }
 
     if (gameStep.limitTimer.finished) {
       endGame();
@@ -57,10 +59,12 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
 
     if( currRoundTime > 60 && isGameEnd == false){
       currRoundTime = 0;
+      if( currRound >= 2 ) isSecondHalf = true;
       resetGame();
     }
   }
 
+  @override
   void endGame() {
     isGameEnd = true;
     correctBox.hide();
@@ -75,6 +79,7 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
       cardArray!.isEnd = true;
       cardArray = null;
     }
+    super.endGame();
   }
 
   @override
@@ -144,7 +149,7 @@ class MatchNthCardGame extends EduceGame with KeyboardEvents {
       cardArray!.isEnd = true;
       cardArray = null;
     }
-    currRound++;
+    //currRound++;
 
     currNthCard = (currRound % 2) == 1 ? 2 : 3;
     missionText.text = '$currNthCard번째 전 카드 맞추기';

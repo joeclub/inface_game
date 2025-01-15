@@ -15,7 +15,7 @@ class BlowBalloonPage extends StatefulWidget {
 
 class _BlowBalloonPageState extends State<BlowBalloonPage> {
 
-  final BlowBalloonGame _game = BlowBalloonGame();
+  final BlowBalloonGame _game = BlowBalloonGame(hasFirstHalfScore: false, hasRoundScore: true, isEP: false);
 
   @override
   void initState() {

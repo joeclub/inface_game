@@ -16,7 +16,7 @@ class FindTilePage extends StatefulWidget {
 
 class _FindTilePageState extends State<FindTilePage> {
   
-  final FindTileGame _game = FindTileGame();
+  final FindTileGame _game = FindTileGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

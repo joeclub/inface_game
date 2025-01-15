@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'package:inface/games/components/end_game_popup.dart';
 import 'package:inface/games/stackball/giveup.dart';
 
 import '../components/color_rect_component.dart';
@@ -26,7 +27,6 @@ class StackBallGame extends EduceGame {
   late TextComponent currStageText;
   int currStage = 0;
   bool isEndGame = false;
-  bool isSecondHalf = false;
 
   late int limitTime;
 
@@ -74,8 +74,10 @@ class StackBallGame extends EduceGame {
   //   timerPaint.render(canvas, "$strMinutes : $seconds", Vector2(100, 100));
   // }
 
+  @override
   void endGame() {
     isEndGame = true;
+    super.endGame();
   }
 
   @override
@@ -122,6 +124,12 @@ class StackBallGame extends EduceGame {
     updateMinMoveCount();
     updateCurrMoveCount();
     updateCurrStageCount();
+
+    // EndGamePopup endGamePopup = EndGamePopup(
+    //   position: Vector2(640, 360),
+    //   point: 100
+    // );
+    // world.add(endGamePopup);
   }
 
   @override
@@ -254,7 +262,7 @@ class StackBallGame extends EduceGame {
       if( minMoveCount < currMoveCount ) {
         currScore += 100;
       } else {
-        currScore += 200;
+        currScore += 150;
       }
     }
     gameStep.updateScore(currScore);

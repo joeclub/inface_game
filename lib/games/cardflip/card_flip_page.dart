@@ -16,7 +16,7 @@ class CardFlipPage extends StatefulWidget {
 
 class _CardFlipPageState extends State<CardFlipPage> {
 
-  final CardFlipGame _game = CardFlipGame();
+  final CardFlipGame _game = CardFlipGame(hasFirstHalfScore: true, hasRoundScore: true, isEP: false);
 
   @override
   void initState() {

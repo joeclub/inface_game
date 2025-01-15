@@ -15,7 +15,7 @@ class FindTemperaturePage extends StatefulWidget {
 
 class _FindTemperaturePageState extends State<FindTemperaturePage> {
   
-  final FindTemperatureGame _game = FindTemperatureGame();
+  final FindTemperatureGame _game = FindTemperatureGame(hasFirstHalfScore: false, hasRoundScore: false, isEP: false);
 
   @override
   void initState() {

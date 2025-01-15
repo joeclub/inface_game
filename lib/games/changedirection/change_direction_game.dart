@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flutter/material.dart';
 
 import '../components/educe_game.dart';
 import '../components/game_step.dart';
@@ -9,10 +10,12 @@ import 'pipe.dart';
 class ChangeDirectionGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
   double roundTime = 0;
 
   List<Pipe> lstPipes = [];
+
+  late TextComponent countText;
+  int count = 0;
 
   ChangeDirectionGame();
 
@@ -44,12 +47,32 @@ class ChangeDirectionGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override
   void initGame(){
+    TextComponent countTitle = TextComponent(
+      anchor: Anchor.center,
+      text: '맞춘 조각 개수',
+      textRenderer: TextPaint(
+        style: const TextStyle(fontSize: 18, color: Colors.black),
+      ),
+      position: Vector2(950, 90),
+    );
+    world.add(countTitle);
 
+    countText = TextComponent(
+      anchor: Anchor.centerRight,
+      text: '0',
+      textRenderer: TextPaint(
+        style: const TextStyle(fontSize: 25, color: Color.fromARGB(255, 52, 186, 204)),
+      ),
+      position: Vector2(1080, 90),
+    );
+    world.add(countText);
   }
 
   @override

@@ -32,6 +32,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
   bool isDefend = false;
   bool reset;
   late SpriteComponent defendSpriteComponent;
+  int score = 10;
 
   @override
   FutureOr<void> onLoad() async {
@@ -65,6 +66,8 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
     );
     add(clipComponent);
 
+    score = gameRef.isSecondHalf ? 20 : 10;
+
     return super.onLoad();
   }
 
@@ -93,7 +96,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
         if( isDefend ){
           bool defendSuccess = laneIndex != ball.ballIndex;
           ball.removeBall(400, defendSuccess);
-          gameRef.addScore(defendSuccess ? 10 : -10);
+          gameRef.addScore(defendSuccess ? score : -score);
           isDefend = false;
           remove(defendSpriteComponent);
         }
@@ -126,7 +129,7 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
   void checkBall(Ball ball){
     bool defendSuccess = laneIndex == ball.ballIndex;
     ball.removeBall(460, defendSuccess);
-    gameRef.addScore(defendSuccess ? 10 : -10);
+    gameRef.addScore(defendSuccess ? score : -score);
     resetDefend();
   }
 

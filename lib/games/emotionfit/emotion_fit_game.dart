@@ -30,7 +30,6 @@ enum EmotionType{
 class EmotionFitGame extends EduceGame {
   final limitTime = 2 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   int emotionIndex = 0;
 
@@ -40,7 +39,7 @@ class EmotionFitGame extends EduceGame {
   //List<List<Sprite>> lstEmotionSprites = [];
   List<int> lstEmotionCount = [];
 
-  EmotionFitGame();
+  EmotionFitGame({required super.hasFirstHalfScore, required super.hasRoundScore, required super.isEP});
 
   @override
   Future<void> onLoad() async {
@@ -62,7 +61,9 @@ class EmotionFitGame extends EduceGame {
     }
   }
 
+  @override
   void endGame() {
+    super.endGame();
   }
 
   @override

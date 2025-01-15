@@ -16,7 +16,6 @@ import 'reset_button.dart';
 class StackingBoxesGame extends EduceGame {
   final limitTime = 4 * 60;
   late GameStep gameStep;
-  bool isSecondHalf = false;
 
   Floor? floor;
   QuestionView? questionView;
