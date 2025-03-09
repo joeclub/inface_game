@@ -292,7 +292,7 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
   }
 
   void updateScore(int score){
-    //scoreText.text = score.toString();
+    //scoreText.text = score.toString();s
   }
 
   void showGameDesc(){
