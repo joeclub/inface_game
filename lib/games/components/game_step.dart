@@ -33,7 +33,7 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
   late TextComponent gameNameText;
   late TextComponent gameNameText2;
 
-  late TextComponent scoreText;
+  //late TextComponent scoreText;
 
   late InputUI inputUI;
   GameDesc? gameDesc;
@@ -242,17 +242,17 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
     );
     gameRef.world.add(backButton);
 
-    scoreText = TextComponent()
-      ..anchor = Anchor.center
-      ..text = '0'
-      ..position = Vector2(640, 30)
-      ..textRenderer = TextPaint(
-        style: TextStyle(
-          fontSize: 40,
-          color: BasicPalette.red.color,
-        ),
-      );
-    background.add(scoreText);
+    // scoreText = TextComponent()
+    //   ..anchor = Anchor.center
+    //   ..text = '0'
+    //   ..position = Vector2(640, 30)
+    //   ..textRenderer = TextPaint(
+    //     style: TextStyle(
+    //       fontSize: 40,
+    //       color: BasicPalette.red.color,
+    //     ),
+    //   );
+    // background.add(scoreText);
   }
 
   @override
@@ -292,7 +292,7 @@ class GameStep extends PositionComponent with HasGameRef<EduceGame> {
   }
 
   void updateScore(int score){
-    scoreText.text = score.toString();
+    //scoreText.text = score.toString();
   }
 
   void showGameDesc(){

@@ -34,10 +34,10 @@ class GameBackButton extends SpriteComponent with HasGameRef<EduceGame>, TapCall
     
     //SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-    // AutoRouter.of(context!).popUntil((route) => route.settings.name == 'SplashRoute');
-    // AutoRouter.of(context!).maybePop();
-    // AutoRouter.of(context!).push(const SplashRoute());
+    AutoRouter.of(context!).popUntil((route) => route.settings.name == 'SplashRoute');
+    AutoRouter.of(context!).maybePop();
+    AutoRouter.of(context!).push(const SplashRoute());
 
-    GameManager().playNextGame(context!);
+    //GameManager().playNextGame(context!);
   }
 }

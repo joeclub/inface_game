@@ -1,5 +1,4 @@
 import 'package:flame/camera.dart';
-import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:inface/game_manager.dart';
@@ -34,7 +33,9 @@ class EduceGame extends FlameGame {
 
   EduceGame({this.hasFirstHalfScore = true, this.hasRoundScore = false, this.isEP = false})
   {
-    isEP = GameManager().ep == '1';
+    if( GameManager().currGame >= 0 ){
+      isEP = GameManager().ep == '1';
+    }
   }
   
   @override
@@ -83,7 +84,7 @@ class EduceGame extends FlameGame {
   void update(double dt) {
     super.update(dt);
 
-    if( isSecondHalf == true ){
+    if( isSecondHalf == true && GameManager().currGame >= 0){
       if( sendFirstHalfScore == false) {
         SendGameScoreService sendGameScoreService = SendGameScoreService();
         if( hasRoundScore ){
@@ -126,26 +127,32 @@ class EduceGame extends FlameGame {
           position: Vector2(640, 360),
           point: currScore,
         );
+        endGamePopup.priority = 99999;
         world.add(endGamePopup);
 
-        if( hasRoundScore ){
-          sendGameScoreService.getGameScoreWithRound(
-            userId: GameManager().id,
-            gameId: GameManager().lstGames[GameManager().currGame],
-            half: 2,
-            score: currScore,
-            round: currRound,
-          );
-        } else {
-          sendGameScoreService.getGameScore(
-            userId: GameManager().id,
-            gameId: GameManager().lstGames[GameManager().currGame],
-            half: 2,
-            score: currScore
-          );
+        if(GameManager().currGame >= 0){
+          if( hasRoundScore ){
+            sendGameScoreService.getGameScoreWithRound(
+              userId: GameManager().id,
+              gameId: GameManager().lstGames[GameManager().currGame],
+              half: 2,
+              score: currScore,
+              round: currRound,
+            );
+          } else {
+            sendGameScoreService.getGameScore(
+              userId: GameManager().id,
+              gameId: GameManager().lstGames[GameManager().currGame],
+              half: 2,
+              score: currScore
+            );
+          }
         }
+        
       } else {
-        sendGameScoreService.getGameComplete(userId: GameManager().id );
+        if(GameManager().currGame >= 0){
+          sendGameScoreService.getGameComplete(userId: GameManager().id );
+        }
       }
       
       showEndGamePopup = true;

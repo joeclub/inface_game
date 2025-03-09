@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
 import 'package:inface/games/components/color_rect_component.dart';
@@ -29,6 +31,9 @@ class TrafficLightGame extends EduceGame {
   Question? question;
 
   bool isSecondHalfQuestion = false;
+
+  int firstHalfScore = 0;
+  int secondHalfScore = 0;
 
   @override
   Future<void> onLoad() async {
@@ -342,10 +347,12 @@ class TrafficLightGame extends EduceGame {
         }
 
         if( question!.secondHalfFilter == checkValue ){
-          currScore += 200;
+          secondHalfScore += 200;
         } else {
-          currScore -= 40;
-        }
+          secondHalfScore -= 40;
+        } 
+        secondHalfScore = max(0, secondHalfScore);
+        currScore = firstHalfScore + secondHalfScore;
         gameStep.updateScore(currScore);
       } else {
         int checkValue = 0;
@@ -360,10 +367,12 @@ class TrafficLightGame extends EduceGame {
         }
         
         if( question!.output == checkValue ){
-          currScore += 100;
-        } else {
-          currScore -= 20;
+          firstHalfScore += 100;
+        } else {          
+          firstHalfScore -= 20;
         }
+        firstHalfScore = max(0, firstHalfScore);
+        currScore = firstHalfScore + secondHalfScore;
         gameStep.updateScore(currScore);
       }
     }

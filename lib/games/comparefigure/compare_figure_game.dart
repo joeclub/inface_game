@@ -794,6 +794,7 @@ class CompareFigureGame extends EduceGame with KeyboardEvents {
       ),
       position: operator0.size * 0.5 + Vector2( 0, -25 ),
     );
+    operator0.paint.filterQuality = FilterQuality.high;
     operator0.add(textTransform0);
 
     TextComponent textTransform1 = TextComponent(
@@ -840,6 +841,7 @@ class CompareFigureGame extends EduceGame with KeyboardEvents {
       size: Vector2(75, 80),
       sprite: operatorSprite1,
     );
+    operator1.paint.filterQuality = FilterQuality.high;
     parentBackground.add(operator1);
 
     TextComponent textTransform10 = TextComponent(

@@ -54,6 +54,8 @@ class Pipe extends SpriteComponent with HasGameRef<ChangeDirectionGame> {
   void update(double dt) {
     super.update(dt);
 
+    if( gameRef.showEndGamePopup ) return;
+
     if( endGame == false ){
       male.position += Vector2(dt * maleSpeed * maleDir, 0);
       if( maleDir > 0 ){

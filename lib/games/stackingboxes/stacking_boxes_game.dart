@@ -49,9 +49,6 @@ class StackingBoxesGame extends EduceGame {
     }
   }
 
-  void endGame() {
-  }
-
   @override
   void initGame(){
     ColorRectComponent background = ColorRectComponent(

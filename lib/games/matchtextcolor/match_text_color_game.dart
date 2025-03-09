@@ -180,6 +180,7 @@ class MatchTextColorGame extends EduceGame with KeyboardEvents {
     KeyEvent event,
     Set<LogicalKeyboardKey> keysPressed,
   ) {
+    if(showEndGamePopup) return KeyEventResult.ignored;
     if( gameStep.step < 2 ) return KeyEventResult.ignored;
     final isKeyDown = event is KeyDownEvent;
 

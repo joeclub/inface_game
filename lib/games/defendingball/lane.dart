@@ -75,6 +75,8 @@ class Lane extends SpriteComponent with HasGameRef<DefendingBallGame>, TapCallba
   void update(double dt) {
     super.update(dt);
 
+    if( gameRef.showEndGamePopup ) return;
+
     if( isLifeEnd ) return;
 
     currTime += dt;

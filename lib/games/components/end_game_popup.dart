@@ -2,13 +2,14 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flame/components.dart';
+import 'package:flame/events.dart';
 import 'package:flutter/material.dart';
 
 import 'color_rect_component.dart';
 import 'end_game_button.dart';
 
 
-class EndGamePopup extends ColorRectComponent with HasGameRef {
+class EndGamePopup extends ColorRectComponent with HasGameRef, TapCallbacks, DragCallbacks {
   EndGamePopup({required super.position, required this.point})
   : super(
     color: const Color.fromARGB(128, 0, 0, 0),

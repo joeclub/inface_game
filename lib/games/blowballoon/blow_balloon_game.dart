@@ -124,6 +124,7 @@ class BlowBalloonGame extends EduceGame {
     expectedProfit = 0;
     scoreBoard!.updateScore(remainBalloon, expectedProfit, accumulatedProfit);
     gameStep.updateScore(accumulatedProfit);
+    currScore = accumulatedProfit;
     pump.setPumpCount(0);
     resetGame();
   }

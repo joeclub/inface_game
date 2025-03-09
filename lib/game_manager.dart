@@ -17,6 +17,7 @@ class GameManager {
 
   void playNextGame(BuildContext context){
     this.context = context;
+    return;
     currGame++;
     if( currGame >= lstGames.length ) return;
     String strGameIndex = lstGames[currGame];

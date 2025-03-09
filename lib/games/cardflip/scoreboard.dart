@@ -183,6 +183,7 @@ class ScoreBoard extends ColorRectComponent with HasGameRef<CardFlipGame>{
     this.happinessScore = happinessScore;
     this.unhappinessScore = unhappinessScore;
     this.unhappinessCount = unhappinessCount;
+    gameRef.currRound = round;
 
     rountText.text = 'ROUND $round';
     happinessScoreText.text = '+$happinessScore';
@@ -196,6 +197,7 @@ class ScoreBoard extends ColorRectComponent with HasGameRef<CardFlipGame>{
     } else {
       currScore += unhappinessScore;
     }
+    gameRef.currScore = currScore;
     currScoreText.text = currScore.toString();
     gameRef.gameStep.updateScore(currScore);
   }
